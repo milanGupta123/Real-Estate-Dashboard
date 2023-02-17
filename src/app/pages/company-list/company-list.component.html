@@ -1,0 +1,209 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Company-List</h1>
+    <!-- <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a>Home</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
+      </ol>
+    </nav> -->
+  </div>
+  <!-- End Page Title -->
+
+  <div class="col-xl-6 col-12 d-md-flex justify-content-around mb-4">
+    <input
+      type="text"
+      class="form-control search w-55"
+      placeholder="Search here"
+      aria-label="Username"
+      aria-describedby="basic-addon1"
+      (keyup)="applyFilter($event)"
+      #input
+    />
+    <div class="">
+      <button
+        _ngcontent-xso-c160=""
+        class="btn btn-dark btn-sm ms-2 mt-md-0 mt-2 addbtn"
+        [routerLink]="['/addcompany']"
+      >
+        + Add Company-Details
+      </button>
+    </div>
+  </div>
+
+  <table mat-table [dataSource]="this.element" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="availability2">
+      <th mat-header-cell *matHeaderCellDef>Availability</th>
+      <td mat-cell *matCellDef="let element">{{ element.availability2 }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="tenantName">
+      <th mat-header-cell *matHeaderCellDef>Tenant-Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.tenantName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="depositTerm">
+      <th mat-header-cell *matHeaderCellDef>Deposit Term</th>
+      <td mat-cell *matCellDef="let element">{{ element.depositTerm }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="registered">
+      <th mat-header-cell *matHeaderCellDef>Registered</th>
+      <td mat-cell *matCellDef="let element">{{ element.registered }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="carpet">
+      <th mat-header-cell *matHeaderCellDef>Carpet</th>
+      <td mat-cell *matCellDef="let element">{{ element.carpet }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="super">
+      <th mat-header-cell *matHeaderCellDef>Super</th>
+      <td mat-cell *matCellDef="let element">{{ element.super }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="seatsNumber">
+      <th mat-header-cell *matHeaderCellDef>Seats Number</th>
+      <td mat-cell *matCellDef="let element">{{ element.seatsNumber }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cabins">
+      <th mat-header-cell *matHeaderCellDef>Cabins</th>
+      <td mat-cell *matCellDef="let element">{{ element.cabins }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="washRooms">
+      <th mat-header-cell *matHeaderCellDef>Wash Rooms</th>
+      <td mat-cell *matCellDef="let element">{{ element.washRooms }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="meetingRoom">
+      <th mat-header-cell *matHeaderCellDef>Meeting Room</th>
+      <td mat-cell *matCellDef="let element">{{ element.meetingRoom }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="pantry">
+      <th mat-header-cell *matHeaderCellDef>Pantry</th>
+      <td mat-cell *matCellDef="let element">{{ element.pantry }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="reception">
+      <th mat-header-cell *matHeaderCellDef>Reception</th>
+      <td mat-cell *matCellDef="let element">{{ element.reception }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="availableFrom">
+      <th mat-header-cell *matHeaderCellDef>Available From</th>
+      <td mat-cell *matCellDef="let element">{{ element.availableFrom }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          aria-label="Example icon-button with a menu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button
+            mat-menu-item
+            [routerLink]="['/viewcompanydetail', element.companyid]"
+          >
+            <mat-icon>remove_red_eye</mat-icon>
+            <span>View</span>
+          </button>
+
+          <button
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            mat-menu-item
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            (click)="deleteuserData(element.companyid)"
+          >
+            <mat-icon>delete_outline</mat-icon>
+            <span>Delete</span>
+          </button>
+
+          <!-- <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="exampleModalLabel">
+                    Are you sure want to delete ?
+                  </h4>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+
+                <div
+                  class="modal-footer"
+                  style="display: flex; justify-content: center"
+                >
+                  <button
+                    type="button"
+                    class="btn btn-light"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                    (click)="deleteuserData(element.companyid)"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <button
+            button
+            mat-menu-item
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal1"
+            mat-menu-item
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            [routerLink]="['/editcompanydetail', element.companyid]"
+          >
+            <mat-icon>edit</mat-icon>
+            <span>Edit</span>
+          </button>
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    #paginator
+    [pageSize]="5"
+    [pageSizeOptions]="[1, 2, 5, 10, 50]"
+    style="display: flex; 
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.82) 0%, rgba(67, 67, 67, 0.82) 120.41%);
+    color: white;"
+  >
+  </mat-paginator>
+</main>
+<!-- End #main -->

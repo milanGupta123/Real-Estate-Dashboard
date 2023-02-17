@@ -1,0 +1,108 @@
+
+.welcometext {
+    width: 100%;
+    font-size: 32px;
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: black;
+}
+
+.search {
+    border-radius: 64px;
+}
+
+::placeholder {
+    font-size: medium;
+}
+
+.form-control {
+    font-size: medium;
+}
+
+.maindiv {
+    display: flex;
+    background-color: white;
+}
+
+.img {
+    width: 100%;
+    height: 354px;
+    border-radius: 6px;
+}
+.ff{
+    display: flex;
+
+}
+.hh{
+    margin-left: 50px;
+    margin-top: 10px;
+}
+.gg{
+    padding: 30px;
+}
+
+@media screen and (max-width:550px) {
+
+    .gg{
+        padding: 10px;
+    }
+
+}
+.img1 {
+    width: 100%;
+    height: 338px;
+    border-radius: 6px;
+}
+
+.totalproperty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 160px;
+    width: 100%;
+    margin: 10px;
+    border: 1px solid #9E9E9E;
+    background-color: white;
+    border-radius: 6px;
+ 
+}
+
+
+
+.prop{
+    font-size: 22px;
+}
+
+
+
+
+.revenue {
+    width: 100%;
+    height: 340px;
+    margin: 10px;
+    border: 1px solid #9E9E9E;
+    background: whitesmoke;
+    border-radius: 6px;
+}
+
+.propertysale {
+    width: 100%;
+    height: 160px;
+    margin: 10px;
+    padding: 30PX;
+    border: 1px solid #9E9E9E;
+    background-color: white;
+    border-radius: 6px;
+}
+
+
+
+.overview {
+    width: 100%;
+    margin: 10px;
+    background: whitesmoke;
+    border: 1px solid #9E9E9E;
+    border-radius: 6px ;
+}

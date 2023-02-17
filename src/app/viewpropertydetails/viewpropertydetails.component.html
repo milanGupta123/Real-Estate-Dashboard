@@ -1,0 +1,797 @@
+<main id="main" class="main">
+  <div class="col-12">
+    <button
+      type="back"
+      class="btn btn-primary addbtn"
+      [routerLink]="['/property-list']"
+    >
+      Back
+    </button>
+
+    <div class="contaneir-fluid">
+      <div class="row">
+        <div class="col-md-12 dddd">
+          <div class="col-md-3" style="margin-top: 20px">
+            <div class="cont1">
+              <div
+                class="box"
+                style="padding-bottom: 10px; margin-bottom: 10px"
+                *ngIf="propertyData.step5.ExpectPrice !== undefined"
+              >
+                <!-- <i class="fa-solid fa-rupee-sign" style="margin-right: 10px"></i
+                > -->
+                <b>Expected Retail :</b>
+                {{ propertyData.step5.ExpectPrice }}
+              </div>
+
+              <div
+                class="box"
+                style="padding-bottom: 10px"
+                *ngIf="propertyData.step5.PricePerSQ !== undefined"
+              >
+                <!-- <i class="fa-solid fa-rupee-sign" style="margin-right: 10px"></i
+                > -->
+                <b>Per sq.ft :</b>
+                {{ propertyData.step5.PricePerSQ }}
+              </div>
+              <!-- <span class="head">₹60,000</span><span>@ 60 per sq.ft. </span> -->
+              <!-- <span class="ver_line"></span> -->
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="">
+              <!-- <span>
+                <p class="">Ready to move office space</p>
+              </span>
+
+              <p class="">
+                in Beaver The Iconic Corenthum, Sector-62 Noida, Noida, U P
+              </p> -->
+            </div>
+          </div>
+          <div class="col-md-3 bter">
+            <button
+              type="button"
+              class="btn btn-success btn-md"
+              style="background-color: #0078db"
+              [routerLink]="['/edit-property', dataid]"
+            >
+              <i class="fas fa-edit"></i> Edit property
+            </button>
+            <br />
+
+            <div class="btn-milan">
+              <div class="col-md-3" style="display: inline-flex">
+                <button class="btn btn-outline-warning btn-sm">
+                  <i class="fas fa-star"></i>
+                </button>
+                <button class="btn btn-outline-warning btn-sm">
+                  <i class="fas fa-star"></i>
+                </button>
+                <button class="btn btn-outline-warning btn-sm">
+                  <i class="fas fa-star"></i>
+                </button>
+                <button class="btn btn-outline-warning btn-sm">
+                  <i class="fas fa-star"></i>
+                </button>
+
+                <button class="btn btn-outline-warning btn-sm">
+                  <i class="fas fa-star"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <!-- <div class="row">
+        <div class="col-md-12 Fontcolor" style="display: inline-flex">
+          <div class="col-md-4">
+            <a href="" class="Fontcolor">Overview</a>
+          </div>
+          <div class="col-md-2">
+            <a href="" class="Fontcolor">Society</a>
+          </div>
+          <div class="col-md-2">
+            <a href="" class="Fontcolor">Dealer Details</a>
+          </div>
+          <div class="col-md-2">
+            <a href="" class="Fontcolor">Recommendations</a>
+          </div>
+          <div class="col-md-2">
+            <a href="" class="Fontcolor">Articles</a>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="row marg" style="border: 1px solid grey; margin-top: 10px">
+        <div class="col-md-12 hello">
+          <div class="col-md-4 Fontcolor">
+            <div class="headingtext" style="display: flex">
+              <h5 style="margin-right: 30px">Property status:</h5>
+              <div style="color: green">
+                {{ propertyData.step3.propertystatus }}
+              </div>
+            </div>
+            <br />
+
+            <div
+              id="carouselExampleIndicators"
+              class="carousel slide"
+              data-ride="carousel"
+            >
+              <ol class="carousel-indicators">
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="0"
+                  class="active"
+                ></li>
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="1"
+                ></li>
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="2"
+                ></li>
+              </ol>
+
+              <div class="carousel-inner">
+                <div
+                  *ngFor="let data of propertyData.step4.images; let y = index"
+                  [class]="y == 0 ? 'carousel-item active' : 'carousel-item'"
+                >
+                  <img
+                    class="d-block w-75 vh-50"
+                    src="{{ data }}"
+                    alt="Second slide"
+                  />
+                </div>
+              </div>
+              <a
+                class="carousel-control-prev"
+                href="#carouselExampleIndicators"
+                role="button"
+                data-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a
+                class="carousel-control-next"
+                href="#carouselExampleIndicators"
+                role="button"
+                data-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="row Fontcolor"
+        style="margin-top: 3rem; border: 1px solid grey"
+      >
+        <h6><b>Basic Details</b></h6>
+        <div class="col-md-12">
+          <div class="col-md-4 Fontcolor">
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step1.Looking !== undefined"
+            >
+              <i class="fa-solid fa-eye" style="margin-right: 10px"></i>
+              <b>Lookings:</b>
+              {{ propertyData.step1.Looking }}
+            </div>
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step1.propertycategory !== undefined"
+            >
+              <i class="fa-solid fa-city" style="margin-right: 10px"></i>
+              <b>Property Category:</b>
+              {{ propertyData.step1.propertycategory }}
+            </div>
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step1.type !== undefined"
+            >
+              <i class="fa-solid fa-house" style="margin-right: 10px"></i>
+              <b>Residential/Commercial:</b>
+              {{ propertyData.step1.type }}
+            </div>
+          </div>
+          <div class="col-md-4 Fontcolor">
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step1.subtype !== undefined"
+            >
+              <i class="fa fa-users" style="margin-right: 10px"></i
+              ><b>Commercial Type:</b>
+              {{ propertyData.step1.subtype }}
+            </div>
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step1.childsubtype !== undefined"
+            >
+              <i class="fa fa-users" style="margin-right: 10px"></i
+              ><b>Commersial subType:</b>
+              {{ propertyData.step1.childsubtype }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="row Fontcolor"
+        style="margin-top: 3rem; border: 1px solid grey"
+      >
+        <h6><b>Location Details</b></h6>
+        <div class="col-md-12" style="display: flex">
+          <div class="col-md-4">
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step2.city !== undefined"
+            >
+              <i class="fa-solid fa-city" style="margin-right: 10px"></i
+              ><b>City:</b>
+              {{ propertyData.step2.city }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step2.Apartmentsociety !== undefined"
+            >
+              <i class="fas fa-chair" style="margin-right: 10px"></i
+              ><b>Apartment/Society:</b>
+              {{ propertyData.step2.Apartmentsociety }}
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step2.Locality !== undefined"
+            >
+              <i class="bi bi-geo-alt" style="margin-right: 10px"></i
+              ><b>Locality:</b>
+              {{ propertyData.step2.Locality }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step2.Sublocality !== undefined"
+            >
+              <i class="bi bi-geo-alt" style="margin-right: 10px"></i
+              ><b>Sublocality:</b>
+              {{ propertyData.step2.Sublocality }}
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step2.Houseno !== undefined"
+            >
+              <i class="fa-solid fa-house" style="margin-right: 10px"></i>
+              <b>Building Number:</b>
+              {{ propertyData.step2.Houseno }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="row Fontcolor"
+        style="margin-top: 3rem; border: 1px solid gray"
+      >
+        <h6><b>Property Details</b></h6>
+        <div class="col-md-12" style="display: flex">
+          <div class="col-md-4">
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.Addroom !== undefined"
+            >
+              <i class="fa-solid fa-bed" style="margin-right: 10px"></i
+              ><b>No. of Bedrooms:</b>
+              {{ propertyData.step3.Addroom }}
+            </div>
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.addbathroom !== undefined"
+            >
+              <i class="fa-solid fa-restroom" style="margin-right: 10px"></i>
+              <b>No. of Bathrooms:</b>
+              {{ propertyData.step3.addbathroom }}
+            </div>
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.addbalconies !== undefined"
+            >
+              <i
+                class="fa-solid fa-window-restore"
+                style="margin-right: 10px"
+              ></i>
+              <b>Balconies:</b>
+              {{ propertyData.step3.addbalconies }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.carpertArea !== undefined"
+            >
+              <i class="fa-solid fa-rug" style="margin-right: 10px"></i>
+              <b>Carpet Area:</b>
+              {{ propertyData.step3.carpertArea.Carpetarea }}
+              {{ propertyData.step3.carpertArea.Units }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.builtupArea !== undefined"
+            >
+              <i
+                class="fa-brands fa-simplybuilt"
+                style="margin-right: 10px"
+              ></i>
+              <b> Built-up Area:</b>
+              {{ propertyData.step3.builtupArea.builtuparea }}
+              {{ propertyData.step3.builtupArea.Units }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.squarebuiltupArea !== undefined"
+            >
+              <i
+                class="fa-solid fa-building-shield"
+                style="margin-right: 10px"
+              ></i>
+              <b>Add Super Built-up Area:</b>
+              {{ propertyData.step3.squarebuiltupArea.superbuiltuparea }}
+              {{ propertyData.step3.squarebuiltupArea.Units }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.Openparking !== undefined"
+            >
+              <i
+                class="fa-solid fa-square-parking"
+                style="margin-right: 10px"
+              ></i>
+              <b>open Parking:</b>
+              {{ propertyData.step3.Openparking }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.underparking !== undefined"
+            >
+              <i
+                class="fa-solid fa-boxes-packing"
+                style="margin-right: 10px"
+              ></i>
+              <b>Covered Parking:</b>
+              {{ propertyData.step3.underparking }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.liftType !== undefined"
+            >
+              <i class="fa-solid fa-elevator" style="margin-right: 10px"></i>
+              <b>Lift:</b>
+              {{ propertyData.step3.liftType }}
+            </div>
+
+            <div
+              class="col-6"
+              *ngFor="let item of propertyData.step3.othersroom"
+            >
+              <div style="padding-bottom: 10px">
+                <i class="fa-solid fa-loveseat" style="margin-right: 10px"></i
+                ><b>{{ item }} : 1 </b>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.minimumNoofSeats !== undefined"
+            >
+              <i class="fas fa-chair" style="margin-right: 10px"></i>
+              <b>Mini. No. of Seats:</b>
+              {{ propertyData.step3.minimumNoofSeats }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.maximumnoOfSeats !== undefined"
+            >
+              <i class="fas fa-chair" style="margin-right: 10px"></i>
+              <b>Maxi. No. of Seats:</b>
+              {{ propertyData.step3.maximumnoOfSeats }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.Cabins !== undefined"
+            >
+              <i class="fa-solid fa-cabin" style="margin-right: 10px"></i>
+              <b>no. of Cabins:</b>
+              {{ propertyData.step3.Cabins }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.meetingroom !== undefined"
+            >
+              <i class="fa-solid fa-handshake" style="margin-right: 10px"></i>
+              <b>No. of Meeting Rooms:</b>
+              {{ propertyData.step3.meetingroom }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.conference !== undefined"
+            >
+              <i class="fa-solid fa-cloud" style="margin-right: 10px"></i>
+              <b>Conference Room:</b>
+              {{ propertyData.step3.conference }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.Reception !== undefined"
+            >
+              <i class="bi bi-reception-4" style="margin-right: 10px"></i>
+              <b>Reception Area:</b>
+              {{ propertyData.step3.Reception }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.pantry !== undefined"
+            >
+              <i class="bi bi-badge-wc" style="margin-right: 10px"></i
+              ><b>Pantry:</b>
+              {{ propertyData.step3.pantry }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.availitystatus !== undefined"
+            >
+              <i class="bi bi-save-fill" style="margin-right: 10px"></i>
+              <b>Availability Status:</b>
+              {{ propertyData.step3.availitystatus }}
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.FloorDetail !== undefined"
+            >
+              <i class="bi bi-save-fill" style="margin-right: 10px"></i>
+              <b>Total Floor:</b>
+              {{ propertyData.step3.FloorDetail }}
+            </div>
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.OnFloorDetails !== undefined"
+            >
+              <i class="bi bi-save-fill" style="margin-right: 10px"></i>
+              <b>Property on Floor:</b>
+              {{ propertyData.step3.OnFloorDetails }}
+            </div>
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.availitysubtype !== undefined"
+            >
+              <i class="bi bi-save-fill" style="margin-right: 10px"></i>
+              <b>Age of Property:</b>
+              {{ propertyData.step3.availitysubtype }}
+            </div>
+
+            <div
+              class="col-6"
+              *ngFor="let item of propertyData.step3.firesafety"
+            >
+              <div style="padding-bottom: 10px">
+                <i class="fa-solid fa-loveseat" style="margin-right: 10px"></i
+                ><b>{{ item }} : 1 </b>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row Fontcolor">
+          <div class="col-md-4">
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.light !== undefined"
+            >
+              <h6><b>Furnished/Semi-Furnished type</b></h6>
+              <i class="bi bi-lightbulb-fill" style="margin-right: 10px"></i>
+              <b>Light:</b>
+              {{ propertyData.step3.light }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.Ac !== undefined"
+            >
+              <i class="bi bi-cast" style="margin-right: 10px"></i>
+              <b>Ac:</b>
+              {{ propertyData.step3.Ac }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.Geyser !== undefined"
+            >
+              <i class="fas fa-chair" style="margin-right: 10px"></i>
+              <b>Geyser:</b>
+              {{ propertyData.step3.Geyser }}
+            </div>
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.Fans !== undefined"
+            >
+              <i class="fa-solid fa-fan" style="margin-right: 10px"></i>
+              <b>Fans:</b>
+              {{ propertyData.step3.Fans }}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.TV !== undefined"
+            >
+              <i class="bi bi-tv" style="margin-right: 10px"></i>
+              <b>TV :</b>
+              {{ propertyData.step3.TV }}
+            </div>
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.Wardrobe !== undefined"
+            >
+              <i class="fa-duotone fa-ethernet" style="margin-right: 10px"></i>
+              <b>Wardrobe:</b>
+              {{ propertyData.step3.Wardrobe }}
+            </div>
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.Beds !== undefined"
+            >
+              <i class="fa-solid fa-bed" style="margin-right: 10px"></i>
+              <b>Beds:</b>
+              {{ propertyData.step3.Beds }}
+            </div>
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step3.AcType !== undefined"
+            >
+              <i class="bi bi-cast" style="margin-right: 10px"></i>
+              <b>Types of Ac:</b>
+              {{ propertyData.step3.AcType }}
+            </div>
+          </div>
+
+          <div
+            style="padding-bottom: 10px"
+            *ngIf="propertyData.step3.funishring !== undefined"
+          >
+            <i class="fas fa-couch" style="margin-right: 10px"></i
+            ><b>Furnishing:</b>
+            {{ propertyData.step3.funishring }}
+          </div>
+
+          <div class="col-4" *ngFor="let item of propertyData.step3.equipment">
+            <div style="padding-bottom: 10px">
+              <i class="fa-solid fa-loveseat" style="margin-right: 10px"></i
+              ><b>{{ item }} : 1 </b>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="row Fontcolor"
+        style="margin-top: 1rem; border: 1px solid grey"
+      >
+        <h6><b>Pricing & Others Details</b></h6>
+        <div class="col-md-12" style="display: flex">
+          <div class="col-md-4">
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.ownership !== undefined"
+            >
+              <i class="fa fa-user" style="margin-right: 10px"></i>
+              <b>Ownership:</b>
+              {{ propertyData.step5.ownership }}
+            </div>
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.Pre_released !== undefined"
+            >
+              <i class="fa-solid fa-briefcase" style="margin-right: 10px"></i>
+              <b>Is it Pre-leased / Pre-Rented:</b>
+              {{ propertyData.step5.Pre_released }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.Currentrent !== undefined"
+            >
+              <h6><b>Pre-leased / Pre-Rented Details </b></h6>
+              <i class="fa fa-calendar" style="margin-right: 10px"></i>
+              <b>Current rate Per Month:</b>
+              {{ propertyData.step5.Currentrent }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.Leasetenure !== undefined"
+            >
+              <i class="fa fa-calendar" style="margin-right: 10px"></i>
+              <b>Lease tenure in Years:</b>
+              {{ propertyData.step5.Leasetenure }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.Annualrent !== undefined"
+            >
+              <i class="fa fa-calendar" style="margin-right: 10px"></i>
+              <b>Annual Rent increase in % :</b>
+              {{ propertyData.step5.Annualrent }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.BusinessType !== undefined"
+            >
+              <i class="fa-solid fa-briefcase" style="margin-right: 10px"></i>
+              <b>Leased to Business Type:</b>
+              {{ propertyData.step5.BusinessType }}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!-- <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.ExpectPrice !== undefined"
+            >
+              <i class="fa-solid fa-rupee-sign" style="margin-right: 10px"></i
+              ><b>Price Details:</b>
+              {{ propertyData.step5.ExpectPrice }}
+            </div> -->
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.SecurityDeposite !== undefined"
+            >
+              <i class="fa-solid fa-lock" style="margin-right: 10px"></i
+              ><b>Security deposit:</b>
+              {{ propertyData.step5.SecurityDeposite }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.Brokarage !== undefined"
+            >
+              <i class="fa fa-exchange" style="margin-right: 10px"></i>
+              <b>Do you charge brokarage?</b>
+              {{ propertyData.step5.Brokarage }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.FireNOC !== undefined"
+            >
+              <i class="fa-solid fa-fire" style="margin-right: 10px"></i>
+              <b>Is your office fire NOC Certified:</b>
+              {{ propertyData.step5.FireNOC }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.OccurancyCertified !== undefined"
+            >
+              <i class="fa fa-tasks" style="margin-right: 10px"></i>
+              <b>Occupancy Certified:</b>
+              {{ propertyData.step5.OccurancyCertified }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.MonthNumber !== undefined"
+            >
+              <i class="fa-solid fa-lock" style="margin-right: 10px"></i>
+              <b>Lock-in Period:</b>
+              {{ propertyData.step5.MonthNumber }}
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.PreOfficeType !== undefined"
+            >
+              <i class="fa fa-briefcase" style="margin-right: 10px"></i>
+              <b>Your office was previously used for:</b>
+              {{ propertyData.step5.PreOfficeType }}
+            </div>
+
+            <!-- <h6><b>Add more pricing details</b></h6> -->
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.Maintenance !== undefined"
+            >
+              <i class="fa-solid fa-wrench" style="margin-right: 10px"></i>
+              <b>Maintanance:</b>
+              {{ propertyData.step5.Maintenance.maintenance }}
+              {{ propertyData.step5.Maintenance.paymentperiod }}
+            </div>
+
+            <!-- <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.ExpectPrice !== undefined"
+            >
+              <i class="fa-solid fa-store" style="margin-right: 10px"></i>
+              <b>Expected Retail:</b>
+              {{ propertyData.step5.ExpectPrice }}
+            </div> -->
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.BookingAmount !== undefined"
+            >
+              <i class="fa fa-book" style="margin-right: 10px"></i>
+              <b>Booking Amount:</b>
+              {{ propertyData.step5.BookingAmount }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.AnnualDuesPayable !== undefined"
+            >
+              <i class="fa-solid fa-store" style="margin-right: 10px"></i>
+              <b>Annual Dues Payable:</b>
+              {{ propertyData.step5.AnnualDuesPayable }}
+            </div>
+
+            <div
+              style="padding-bottom: 10px"
+              *ngIf="propertyData.step5.description !== undefined"
+            >
+              <i class="fas fa-info" style="margin-right: 10px"></i>
+              <b>What makes your property unique:</b>
+              {{ propertyData.step5.description }}
+            </div>
+          </div>
+        </div>
+        <div class="row Fontcolor">
+          <div class="col-4" *ngFor="let item of propertyData.step5.tex">
+            <div style="padding-bottom: 10px">
+              <i class="fa-solid fa-loveseat" style="margin-right: 10px"></i
+              ><b>{{ item }} : 1 </b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

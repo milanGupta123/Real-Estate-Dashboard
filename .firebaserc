@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "velldone-c6998": {
+      "hosting": {
+        "velldone": [
+          "velldone-c6998"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "velldone-c6998"
+  }
+}

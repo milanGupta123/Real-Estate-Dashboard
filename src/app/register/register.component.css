@@ -1,0 +1,17 @@
+.example-full-width{
+    width:30rem
+}
+.loginbtn{
+    color: white;
+    background-color: blue;
+    margin-left: 13rem;
+}
+@media screen and (max-width:550px) {
+
+    .example-full-width{
+    width:10rem
+}
+.loginbtn{
+    margin-left: 2rem;
+}
+}

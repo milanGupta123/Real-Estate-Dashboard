@@ -1,0 +1,349 @@
+<main id="main" class="main">
+<div class="col-12">
+    <button type="back" class="btn btn-primary addbtn"  [routerLink]="['/company-list']">Back</button>
+  </div>
+  
+  <h3 class="heading Fontcolor">Company</h3>
+  <h4 class="heading Fontcolor">Building or Unit Property</h4> <br>
+  <form #basicForm="ngForm" name="form1" id="form1" (ngSubmit)="addData(basicForm.value)" action="/action_page.php">
+  
+    <div class="row g-3 mtform">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1" class="Fontcolor">Availability :</label><br />
+          <select required class="form-control" id="exampleFormControlInput1" placeholder="" ngModel name="availability2"
+            id="availability2" #availability2="ngModel">
+            <option value="Available" selected="selected" class="form-control"> 🟢 Available</option>
+            <option value="Vacant" selected="" class="form-control"> 🟡 Vacant</option>
+            <option value="Not Available" selected="" class="form-control"> 🔴 Not Available</option>
+          </select>
+          <div *ngIf="availability2.touched && availability2.invalid" style="color: red;">
+            <div *ngIf="availability2.errors?.['required']">
+              required * 
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="form-group">
+        <label for="exampleFormControlInput1">Deposit Term :</label><br />
+        <select name="depositTerm" class="form-control" id="exampleFormControlInput1" placeholder="" ngModel
+          id="depositTerm" #depositTerm="ngModel" required>
+          <option value="rent" selected="selected" class="form-control">Rent</option>
+        </select>
+        <div *ngIf="depositTerm.touched && depositTerm.invalid" style="color: red;">
+          <div *ngIf="availability.errors?.['required']">
+            required *
+          </div>
+        </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Registered :</label><br />
+          <select name="registered" class="form-control" id="exampleFormControlInput1" placeholder="" ngModel
+            name="registered" id="registered" #registered="ngModel" required>
+            <option value="registered" selected="selected" class="form-control">Registered</option>
+            <option value="Non registered" selected="selected" class="form-control">Non Registered</option>
+          </select>
+          <div *ngIf="registered.touched && registered.invalid" style="color: red;">
+            <div *ngIf="registered.errors?.['required']">
+              required *
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Carpet :</label>
+          <select class="form-control" id="exampleFormControlInput1" placeholder="" ngModel name="carpet" id="carpet"
+            #carpet="ngModel" required>
+            <option value="Yes" selected="selected" class="form-control">Yes</option>
+            <option value="No" selected="selected" class="form-control">No</option>
+          </select>
+          <div *ngIf="carpet.touched && carpet.invalid" style="color: red;">
+            <div *ngIf="carpet.errors?.['required']">
+              required *
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Super :</label>
+          <select name="super" class="form-control" id="exampleFormControlInput1" placeholder="" ngModel id="super"
+            #super="ngModel" required>
+            <option value="1" selected="selected" class="form-control">1</option>
+            <option value="2" selected="selected" class="form-control">2</option>
+          </select>
+          <div *ngIf="super.touched && super.invalid" style="color: red;">
+            <div *ngIf="super.errors?.['required']">
+              required *
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Seats Number :</label>
+          <select name="seatsNumber" class="form-control" id="exampleFormControlInput1" placeholder="" ngModel
+            id="seatsNumber" #seatsNumber="ngModel" required>
+            <option value="1" selected="selected" class="form-control">1</option>
+            <option value="2" selected="selected" class="form-control">2</option>
+            <option value="3" selected="selected" class="form-control">3</option>
+          </select>
+          <div *ngIf="seatsNumber.touched && seatsNumber.invalid" style="color: red;">
+            <div *ngIf="seatsNumber.errors?.['required']">
+              required *
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Cabins :</label>
+          <input type="cabins" class="form-control" id="exampleFormControlInput1" placeholder="" ngModel name="cabins"
+            id="cabins" #cabins="ngModel" required> <br>
+          <span *ngIf="cabins.invalid && cabins.touched" style="color: red;"> required * </span>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Wash Rooms :</label><br />
+          <select class="form-control" id="exampleFormControlInput1" placeholder="" ngModel name="washRooms"
+            id="washRooms" #washRooms="ngModel" required>
+            <option value="Yes" selected="selected" class="form-control">Yes</option>
+            <option value="No" selected="selected" class="form-control">No</option>
+          </select>
+          <div *ngIf="washRooms.touched && washRooms.invalid" style="color: red;">
+            <div *ngIf="washRooms.errors?.['required']">
+              required *
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Meeting Room :</label>
+          <input type="meetingRoom" class="form-control" id="exampleFormControlInput1" placeholder="" ngModel
+            name="meetingRoom" id="meetingRoom" #meetingRoom="ngModel" required>
+          <span *ngIf="meetingRoom.invalid && meetingRoom.touched" style="color: red;"> required * </span>
+        </div>
+      </div>
+  
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Pantry :</label>
+          <select class="form-control" id="exampleFormControlInput1" placeholder="" ngModel name="pantry" id="pantry"
+            #pantry="ngModel" required>
+            <option value="Dry" selected="selected" class="form-control">Dry</option>
+          </select>
+          <div *ngIf="pantry.touched && pantry.invalid" style="color: red;">
+            <div *ngIf="pantry.errors?.['required']">
+              required *
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Reception :</label>
+          <select name="reception" class="form-control" id="exampleFormControlInput1" placeholder="" ngModel
+            id="reception" #reception="ngModel" required>
+            <option value="Yes" selected="selected" class="form-control">Yes</option>
+            <option value="No" selected="selected" class="form-control">No</option>
+          </select>
+          <div *ngIf="reception.touched && reception.invalid" style="color: red;">
+            <div *ngIf="reception.errors?.['required']">
+              required *
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Available From :</label>
+          <input type="availableFrom" class="form-control" id="exampleFormControlInput1" placeholder="" ngModel
+            name="availableFrom" id="availableFrom" #availableFrom="ngModel" required>
+          <span *ngIf="availableFrom.invalid && availableFrom.touched" style="color: red;"> required *
+          </span>
+        </div>
+      </div>
+  
+      <div class="col-md-12">
+        <div class="form-group">
+          <label class="form-label" for="customFile">Ref From Pics :</label>
+          <!-- <input type="text" class="form-control" id="customFile" required> -->
+          <input type="file" class="form-control" id="customFile" />
+        </div>
+      </div> <br>
+    </div>
+  
+  
+  
+    <h3 class=" heading2 Fontcolor">Tenant Details</h3>
+    <div class="row g-3 mtform">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Tenant Name:</label>
+          <input required type="name" minlength="3" class="form-control" id="exampleFormControlInput1" placeholder=""
+            ngModel name="tenantName" id="tenantName" #tenantName="ngModel">
+          <div *ngIf="tenantName.touched && tenantName.invalid" style="color: red;">
+            <div *ngIf="tenantName.errors?.['required']">
+              required *
+            </div>
+            <div *ngIf="tenantName.errors?.['minlength']">
+              (Minimum length = 3)
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Tenant Contact:</label>
+          <input required type="number" minlength='10' class="form-control" id="exampleFormControlInput1" placeholder=""
+            ngModel name="tenantContact" id="tenantContact" #tenantContact="ngModel">
+          <div *ngIf="tenantContact.touched && tenantContact.invalid" style="color: red;">
+            <div *ngIf="tenantContact.errors?.['required']">
+              required *
+            </div>
+            <div *ngIf="tenantContact.errors?.['minlength']">
+              Number is invalid!
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Tenant Email id:</label>
+          <input required type="email" minlength="5" class="form-control" id="exampleFormControlInput1" placeholder=""
+            ngModel name="tenantEmailid" id="tenantEmailid" #tenantEmailid="ngModel">
+          <div *ngIf="tenantEmailid.touched && tenantEmailid.invalid" style="color: red;">
+            <div *ngIf="tenantEmailid.errors?.['required']">
+              required *
+            </div>
+            <div *ngIf="tenantEmailid.errors?.['minlength']">
+              Email is invalid!
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Company Name:</label>
+          <input required type="name" minlength="3" class="form-control" id="exampleFormControlInput1" placeholder=""
+            ngModel name="companyName" id="companyName" #companyName="ngModel">
+          <div *ngIf="companyName.touched && companyName.invalid" style="color: red;">
+            <div *ngIf="companyName.errors?.['required']">
+              required *
+            </div>
+            <div *ngIf="companyName.errors?.['minlength']">
+              (Minimum length = 3)
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Admin Name:</label>
+          <input required type="name" minlength="3" class="form-control" id="exampleFormControlInput1" placeholder=""
+            ngModel name="adminName" id="adminName" #adminName="ngModel">
+          <div *ngIf="adminName.touched && adminName.invalid" style="color: red;">
+            <div *ngIf="adminName.errors?.['required']">
+              required *
+            </div>
+            <div *ngIf="adminName.errors?.['minlength']">
+              (Minimum length = 3)
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Company Services:</label>
+          <input required type="name" minlength="3" class="form-control" id="exampleFormControlInput1" placeholder=""
+            ngModel name="companyServices" id="companyServices" #companyServices="ngModel">
+          <div *ngIf="companyServices.touched && companyServices.invalid" style="color: red;">
+            <div *ngIf="companyServices.errors?.['required']">
+              required *
+            </div>
+            <div *ngIf="companyServices.errors?.['minlength']">
+              (Minimum length = 3)
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Website :</label>
+          <input required type="name" minlength="7" class="form-control" id="exampleFormControlInput1" placeholder=""
+            ngModel name="Website" id="Website" #Website="ngModel">
+          <div *ngIf="Website.touched && Website.invalid" style="color: red;">
+            <div *ngIf="Website.errors?.['required']">
+              required *
+            </div>
+            <div *ngIf="Website.errors?.['minlength']">
+              required *
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Rent Revpermate:</label>
+          <input required type="name" minlength="3" class="form-control" id="exampleFormControlInput1" placeholder=""
+            ngModel name="rentRevpermate" id="rentRevpermate" #rentRevpermate="ngModel">
+          <div *ngIf="rentRevpermate.touched && rentRevpermate.invalid" style="color: red;">
+            <div *ngIf="rentRevpermate.errors?.['required']">
+              required *
+            </div>
+            <div *ngIf="rentRevpermate.errors?.['minlength']">
+              required *
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Availability :</label><br />
+          <select required class="form-control" id="exampleFormControlInput1" placeholder="" ngModel name="availability"
+            id="availability" #availability="ngModel">
+            <option value="Available" selected="selected" class="form-control"> 🟢 Available</option>
+            <option value="Vacant" selected="" class="form-control"> 🟡 Vacant</option>
+            <option value="Not Available" selected="" class="form-control"> 🔴 Not Available</option>
+          </select>
+          <div *ngIf="availability.touched && availability.invalid" style="color: red;">
+            <div *ngIf="availability.errors?.['required']">
+              required *
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary addbtn" [disabled]="basicForm.invalid">Submit</button>
+      </div>
+    </div>
+  </form>
+</main>

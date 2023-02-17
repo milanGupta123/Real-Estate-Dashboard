@@ -1,0 +1,188 @@
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 2rem;
+    padding-top: 8rem;
+    padding-left: 2.5rem;
+  }
+}
+
+.head {
+  font-size: 4rem;
+}
+.box {
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(67, 67, 67, 0.82);
+  border-radius: 5px;
+}
+.addbtn {
+  margin-bottom: 50px;
+}
+@media (min-width: 620px) {
+  .nn {
+    display: flex;
+  }
+}
+
+.it {
+  margin-top: 3rem;
+}
+
+.first {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.ver_line {
+  border-left: 0.1px solid grey;
+  height: 10rem;
+}
+
+.ver_line2 {
+  border-left: 0.1px solid grey;
+  height: 90px;
+  position: absolute;
+  left: 56%;
+}
+
+.para {
+  margin-left: 18rem;
+  margin-top: 1rem;
+}
+
+.p1 {
+  margin-top: -2.5rem;
+  color: grey;
+}
+
+.p2 {
+  margin-top: 0rem;
+  color: grey;
+  font-size: 0.8rem;
+}
+
+.cont1 {
+  color: #ffffff;
+}
+
+.head {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.btn1 {
+  margin-left: 1rem;
+}
+.btn {
+  margin-left: 5px;
+}
+.para2 {
+  color: green;
+}
+
+.reg {
+  margin-left: 2rem;
+}
+
+.web {
+  margin-left: 2rem;
+}
+
+.editbtn {
+  margin-left: 50rem;
+  margin-top: 1rem;
+}
+
+.ratingsbtn {
+  margin-left: 51rem;
+  margin-top: 1rem;
+  width: 8.5rem;
+}
+
+hr {
+  margin: 1rem 0;
+  color: inherit;
+  border: 0;
+  border-top: 0.1rem solid;
+  opacity: 0.25;
+  margin-top: -0.8rem;
+}
+
+.table {
+  margin-left: 30px;
+  font-size: 15px;
+}
+
+#societyHead {
+  padding-left: -0.2rem;
+}
+
+.srchImg {
+  height: 12rem;
+}
+
+.table > :not(caption) > * > * {
+  background-color: var(--bs-table-bg);
+  border-bottom-width: 1px;
+  box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+  padding-left: 10px;
+}
+
+.dddd {
+  display: flex;
+}
+
+.bter {
+  display: grid;
+  align-items: flex-end;
+}
+
+.rera {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.tab {
+  display: flex;
+}
+
+.list-group {
+  list-style: none;
+  display: inline-flex;
+  border: navy;
+}
+.marg {
+  margin-top: 25px;
+}
+.hello {
+  display: flex;
+  margin-top: 15px;
+}
+
+@media (max-width: 550px) {
+  .dddd {
+    display: block;
+  }
+
+  .bter {
+    display: block;
+    align-items: flex-end;
+  }
+  .hello {
+    display: block;
+  }
+
+  .rera {
+    display: block;
+  }
+  .tab {
+    display: block;
+  }
+}
+
+.btn-milan {
+  display: flex;
+  flex-direction: column;
+}

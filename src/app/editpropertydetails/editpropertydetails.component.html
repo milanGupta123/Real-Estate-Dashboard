@@ -1,0 +1,2591 @@
+<ng-container [ngSwitch]="stepperOrientation | async"> </ng-container>
+<ng-container>
+  <mat-stepper
+    class="example-stepper"
+    [orientation]="(stepperOrientation | async)!"
+  >
+    <mat-step [stepControl]="firstFormGroup" label="Basic Details">
+      <form [formGroup]="firstFormGroup" class="kkkk">
+        <div class="row">
+          <div class="col-md-12 nn">
+            <h3 class="txt">
+              Welcome back VELLDONE, <br />
+              Fill out basic details
+            </h3>
+          </div>
+          <div class="col-md-12">
+            <h5 class="headtext">I'm looking to</h5>
+
+            <div class="col-md-12 gg">
+              <div class="radioinput radioinput2">
+                <span (click)="Sell($event)">Sell</span>
+              </div>
+
+              <div class="radioinput radioinput2">
+                <span (click)="Sell($event)">Rent / Lease</span>
+              </div>
+
+              <div class="radioinput radioinput2">
+                <span>Sub Lease</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="display">
+            <div class="col-md-12">
+              <h5 class="headtext">What kind of property do you have?</h5>
+              <div class="rr">
+                <div class="radiobtn">
+                  <input
+                    type="radio"
+                    name="age"
+                    label="Residential"
+                    value="Residential"
+                    design="system"
+                    (click)="res($event)"
+                  /><label style="margin-left: 10px" class="bf"
+                    >Residential</label
+                  >
+                </div>
+
+                <div class="radiobtn">
+                  <input
+                    type="radio"
+                    name="age"
+                    label="Commercial"
+                    value="Commercial"
+                    design="system"
+                    (click)="res($event)"
+                  /><label style="margin-left: 10px" class="bf"
+                    >Commercial</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="RentLease">
+            <div class="col-md-12">
+              <h5 class="headtext">What kind of property do you have?</h5>
+              <div class="rr">
+                <div class="radiobtn">
+                  <input
+                    type="radio"
+                    name="age"
+                    label="Residential"
+                    design="system"
+                    value="Residential"
+                    (click)="res($event)"
+                  /><label style="margin-left: 10px" class="bf"
+                    >Residential</label
+                  >
+                </div>
+
+                <div class="radiobtn">
+                  <input
+                    type="radio"
+                    name="age"
+                    label="Commercial"
+                    design="system"
+                    value="Commercial"
+                    (click)="res($event)"
+                  /><label style="margin-left: 10px" class="bf"
+                    >Commercial</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="resdiv">
+            <div class="col-md-12 residential">
+              <div class="radioinput radioinput4">
+                <span (click)="residentalOption($event)">Flat/Apartment</span>
+              </div>
+
+              <div class="radioinput radioinput4">
+                <span (click)="residentalOption($event)"
+                  >Independent House / Villa</span
+                >
+              </div>
+              <br />
+
+              <div class="radioinput radioinput4">
+                <span (click)="residentalOption($event)"
+                  >Independent / Builder Floor</span
+                >
+              </div>
+
+              <div class="radioinput radioinput4">
+                <span (click)="residentalOption($event)">Plot/Land</span>
+              </div>
+
+              <div class="radioinput radioinput4">
+                <span (click)="residentalOption($event)"
+                  >1 RK/ Studio Apartment</span
+                >
+              </div>
+              <br />
+
+              <div class="radioinput radioinput4">
+                <span (click)="residentalOption($event)"
+                  >Serviced Apartment</span
+                >
+              </div>
+
+              <div class="radioinput radioinput4">
+                <span (click)="residentalOption($event)">Farmhouse</span>
+              </div>
+
+              <div class="radioinput radioinput4">
+                <span (click)="residentalOption($event)">Other</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="comdiv">
+            <div class="col-md-12 commercial">
+              <div class="radioinput radioinput4">
+                <span (click)="residentalOption($event)" (click)="office()"
+                  >Office</span
+                >
+              </div>
+
+              <div class="radioinput radioinput4">
+                <span (click)="residentalOption($event)" (click)="retail()"
+                  >Retail</span
+                >
+              </div>
+
+              <div class="radioinput radioinput4">
+                <span (click)="residentalOption($event)" (click)="plot()"
+                  >Plot / Land</span
+                >
+              </div>
+
+              <div class="radioinput radioinput4">
+                <span (click)="residentalOption($event)" (click)="storage()"
+                  >Storage</span
+                >
+              </div>
+
+              <div class="radioinput radioinput4">
+                <span (click)="residentalOption($event)" (click)="industry()"
+                  >Industry</span
+                >
+              </div>
+              <br />
+
+              <div class="radioinput radioinput4">
+                <span (click)="residentalOption($event)" (click)="hospitality()"
+                  >Hospitality</span
+                >
+              </div>
+
+              <div class="radioinput radioinput4">
+                <span (click)="residentalOption($event)" (click)="other()"
+                  >Other</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="officecontainer" style="margin-top: 15px">
+            <div class="col-md-12">
+              <div class="col-md-12 commercial1">
+                <h5 class="headtext">What kind of office is it?</h5>
+
+                <div class="radioinput radioinput5">
+                  <span (click)="hiddenoffice($event)"
+                    >Ready to move office space</span
+                  >
+                </div>
+
+                <div class="radioinput radioinput5">
+                  <span (click)="hiddenoffice($event)"
+                    >Bare shell office space</span
+                  >
+                </div>
+                <br />
+
+                <div class="radioinput radioinput5">
+                  <span (click)="hiddenoffice($event)"
+                    >Co-working office space</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="plotcontainer" style="margin-top: 15px">
+            <div class="col-md-12">
+              <div class="col-md-12 commercial">
+                <h5 class="headtext">What kind of plot / land is it?</h5>
+
+                <div class="radioinput radioinput5">
+                  <span (click)="hiddenoffice($event)"
+                    >Commercial Land/Inst.Land</span
+                  >
+                </div>
+
+                <div class="radioinput radioinput5">
+                  <span (click)="hiddenoffice($event)"
+                    >Agricultural/Farm Land</span
+                  >
+                </div>
+                <br />
+
+                <div class="radioinput radioinput5">
+                  <span (click)="hiddenoffice($event)"
+                    >Industrial Lands/Plots</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="retailcontainer" style="margin-top: 15px">
+            <div class="col-md-12">
+              <div class="col-md-12 commercial">
+                <h5 class="headtext">What type of retail space do you have?</h5>
+                <div class="radioinput radioinput5">
+                  <span
+                    (click)="hiddenoffice($event)"
+                    (click)="commersialshop()"
+                    >Commercial Shops</span
+                  >
+                </div>
+
+                <div class="radioinput radioinput5">
+                  <span
+                    (click)="hiddenoffice($event)"
+                    (click)="commersialshop()"
+                    >Commercial Showrooms</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="row"
+            *ngIf="commercialshopcontainer"
+            style="margin-top: 15px"
+          >
+            <div class="col-md-12">
+              <div class="col-md-12 commercial">
+                <h5 class="headtext">Your shop is located inside ?</h5>
+                <div class="radioinput radioinput6">
+                  <span (click)="retailOption($event)">Mall</span>
+                </div>
+
+                <div class="radioinput radioinput6">
+                  <span (click)="retailOption($event)">Commercial Shop</span>
+                </div>
+
+                <div class="radioinput radioinput6">
+                  <span (click)="retailOption($event)">Commercial Project</span>
+                </div>
+                <br />
+                <div class="radioinput radioinput6">
+                  <span (click)="retailOption($event)"
+                    >Residential Project</span
+                  >
+                </div>
+                <div class="radioinput radioinput6">
+                  <span (click)="retailOption($event)"
+                    >Retail Complex/Building</span
+                  >
+                </div>
+                <div class="radioinput radioinput6">
+                  <span (click)="retailOption($event)">Market/High Street</span>
+                </div>
+                <div class="radioinput radioinput6">
+                  <span (click)="retailOption($event)">Others</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="storagecontainer" style="margin-top: 15px">
+            <div class="col-md-12">
+              <div class="col-md-12 commercial">
+                <h5 class="headtext">What kind of storage is it?</h5>
+                <div class="radioinput radioinput5">
+                  <span (click)="hiddenoffice($event)">Ware House</span>
+                </div>
+
+                <div class="radioinput radioinput5">
+                  <span (click)="hiddenoffice($event)">Cold Storage</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="industrycontainer" style="margin-top: 15px">
+            <div class="col-md-12">
+              <div class="col-md-12 commercial">
+                <h5 class="headtext">What kind of industry is it?</h5>
+                <div class="radioinput radioinput5">
+                  <span (click)="hiddenoffice($event)">Factory</span>
+                </div>
+
+                <div class="radioinput radioinput5">
+                  <span (click)="hiddenoffice($event)">Manufacturing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="row"
+            *ngIf="hospitalitycontainer"
+            style="margin-top: 15px"
+          >
+            <div class="col-md-12">
+              <div class="col-md-12 commercial">
+                <h5 class="headtext">What kind of hospitality is it?</h5>
+                <div class="radioinput radioinput5">
+                  <span (click)="hiddenoffice($event)">Hotel/Resorts</span>
+                </div>
+
+                <div class="radioinput radioinput5">
+                  <span (click)="hiddenoffice($event)"
+                    >Guest-House/Banquet-Halls</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 15px">
+          <button
+            type="button"
+            class="btn btn-primary bgg"
+            [routerLink]="['/property-list']"
+          >
+            Back
+          </button>
+
+          <button type="button" matStepperNext class="btn btn-primary bgg">
+            Continue
+          </button>
+        </div>
+      </form>
+
+      <!-- 
+      <form [formGroup]="firstFormGroup " class="kkkk">
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>address</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>email</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>phone</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form> -->
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Location Details">
+      <form
+        #basicForm="ngForm"
+        name="form1"
+        id="form1"
+        (ngSubmit)="getData(basicForm.value)"
+        action="/action_page.php"
+        class="kkkk"
+      >
+        <h3 class="txt">Where is your property located?</h3>
+        <span
+          >An accurate location helps you connect with the right buyers</span
+        >
+        <div ngcontent-jqe-c223="" class="col-md-12 inputfield">
+          <div ngcontent-jqe-c223="" class="col-md-4">
+            <div ngcontent-jqe-c223="" class="form-outline form-group">
+              <input
+                ngcontent-jqe-c223=""
+                type="text"
+                placeholder="city"
+                (keyup)="inputfield1($event)"
+                class="form-control form-control-lg"
+                [ngModel]="singlepropertylist.propertyDetail.step2.city"
+                name="city"
+                id="city"
+                #city="ngModel"
+                required
+              />
+              <span *ngIf="city.invalid && city.touched" style="color: red">
+                Required *
+              </span>
+            </div>
+          </div>
+        </div>
+        <div ngcontent-jqe-c223="" class="col-md-12 inputfield">
+          <div ngcontent-jqe-c223="" class="col-md-4">
+            <div ngcontent-jqe-c223="" class="form-outline form-group">
+              <input
+                ngcontent-jqe-c223=""
+                type="text"
+                placeholder="Apartment/Society"
+                (keyup)="inputfield2($event)"
+                class="form-control form-control-lg"
+                [ngModel]="
+                  singlepropertylist.propertyDetail.step2.Apartmentsociety
+                "
+                name="Apartment"
+                id="Apartment"
+                #Apartment="ngModel"
+                required
+              />
+              <span
+                *ngIf="Apartment.invalid && Apartment.touched"
+                style="color: red"
+              >
+                Required *
+              </span>
+            </div>
+          </div>
+        </div>
+        <div ngcontent-jqe-c223="" class="col-md-12 inputfield">
+          <div ngcontent-jqe-c223="" class="col-md-4">
+            <div ngcontent-jqe-c223="" class="form-outline form-group">
+              <input
+                ngcontent-jqe-c223=""
+                type="text"
+                placeholder="Locality"
+                (keyup)="inputfield3($event)"
+                class="form-control form-control-lg"
+                [ngModel]="singlepropertylist.propertyDetail.step2.Locality"
+                name="Locality"
+                id="Locality"
+                #Locality="ngModel"
+                required
+              />
+              <span
+                *ngIf="Locality.invalid && Locality.touched"
+                style="color: red"
+              >
+                Required *
+              </span>
+            </div>
+          </div>
+        </div>
+        <div ngcontent-jqe-c223="" class="col-md-12 inputfield">
+          <div ngcontent-jqe-c223="" class="col-md-4">
+            <div ngcontent-jqe-c223="" class="form-outline form-group">
+              <input
+                ngcontent-jqe-c223=""
+                type="text"
+                placeholder="Sublocality"
+                (keyup)="inputfield4($event)"
+                class="form-control form-control-lg"
+                [ngModel]="singlepropertylist.propertyDetail.step2.Sublocality"
+                name="Sublocality"
+                id="Sublocality"
+                #Sublocality="ngModel"
+                required
+              />
+              <span
+                *ngIf="Sublocality.invalid && Sublocality.touched"
+                style="color: red"
+              >
+                Required *
+              </span>
+            </div>
+          </div>
+        </div>
+        <div ngcontent-jqe-c223="" class="col-md-12 inputfield">
+          <div ngcontent-jqe-c223="" class="col-md-4">
+            <div ngcontent-jqe-c223="" class="form-outline form-group">
+              <input
+                ngcontent-jqe-c223=""
+                type="text"
+                placeholder="Building No.(Optional)"
+                (keyup)="inputfield5($event)"
+                class="form-control form-control-lg"
+                [ngModel]="singlepropertylist.propertyDetail.step2.Houseno"
+                name="House"
+                id="House"
+                #House="ngModel"
+              />
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 15px">
+          <button type="button" matStepperPrevious class="btn btn-primary bgg">
+            Back
+          </button>
+          <button
+            type="submit"
+            matStepperNext
+            class="btn btn-primary bgg"
+            [disabled]="basicForm.invalid"
+          >
+            Continue
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup" label="Property Profile">
+      <form [formGroup]="thirdFormGroup" class="kkkk">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="txt2">Tell us about your property</h3>
+            <div class="col-md-12">
+              <div class="bedrm" *ngIf="hidebedroom">
+                <h5 class="headtext">Add Room Details</h5>
+                <span class="bf">No. of Bedrooms</span>
+                <div class="row">
+                  <div class="col-md-12 gg">
+                    <div class="radioinput radioinput7">
+                      <span (click)="bedroom1($event)">1</span>
+                    </div>
+                    <div class="radioinput radioinput7">
+                      <span (click)="bedroom1($event)">2</span>
+                    </div>
+                    <div class="radioinput radioinput7">
+                      <span (click)="bedroom1($event)">3</span>
+                    </div>
+                    <div class="radioinput radioinput7">
+                      <span (click)="bedroom1($event)">4</span>
+                    </div>
+                    <div
+                      *ngIf="otherbedrooms != 0"
+                      class="radioinput radioinput7"
+                    >
+                      <span (click)="bedroom1($event)">{{
+                        otherbedrooms
+                      }}</span>
+                    </div>
+                    <br />
+                    <div
+                      class="hyperlinks_medium"
+                      *ngIf="ddddd"
+                      style="display: block"
+                    >
+                      <span (click)="inputbedroom()"> + Add other</span>
+                    </div>
+                    <div class="addotherbutton" *ngIf="addroominput">
+                      <form (ngSubmit)="addBedroom(form.value)" #form="ngForm">
+                        <input
+                          ngModel
+                          name="otherbedrooms"
+                          class="inputstyle"
+                          placeholder="Text"
+                          type="number"
+                        />
+                        <button
+                          type="submit"
+                          class="btn btn-primary"
+                          style="margin-left: 15px"
+                        >
+                          Done
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12" *ngIf="bathroombox">
+                <span class="bf">No. of Bathrooms</span>
+                <div class="row">
+                  <div class="col-md-12 gg">
+                    <div class="radioinput radioinput8 bathrms">
+                      <span (click)="bathroom($event)">1</span>
+                    </div>
+                    <div class="radioinput radioinput8 bathrms">
+                      <span (click)="bathroom($event)">2</span>
+                    </div>
+                    <div class="radioinput radioinput8 bathrms">
+                      <span (click)="bathroom($event)">3</span>
+                    </div>
+                    <div class="radioinput radioinput8 bathrms">
+                      <span (click)="bathroom($event)">4</span>
+                    </div>
+                    <div
+                      *ngIf="otherbathrooms != 0"
+                      class="radioinput radioinput8 bathrms"
+                    >
+                      <span (click)="bathroom($event)">{{
+                        otherbathrooms
+                      }}</span>
+                    </div>
+                    <br />
+
+                    <div
+                      class="hyperlinks_medium"
+                      *ngIf="fffff"
+                      style="display: block"
+                    >
+                      <span (click)="inputwashroom()"> + Add other</span>
+                    </div>
+
+                    <div class="addotherbutton" *ngIf="inputwashroomtype">
+                      <form (ngSubmit)="addBathroom(form.value)" #form="ngForm">
+                        <input
+                          ngModel
+                          name="otherbathrooms"
+                          class="inputstyle"
+                          placeholder="Text"
+                          type="number"
+                        />
+                        <button
+                          type="submit"
+                          class="btn btn-primary"
+                          style="margin-left: 15px"
+                        >
+                          Done
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span class="bf">Balconies</span>
+              <div class="row">
+                <div class="col-md-12 gg">
+                  <div class="radioinput radioinput9">
+                    <span (click)="balconies($event)">0</span>
+                  </div>
+                  <div class="radioinput radioinput9">
+                    <span (click)="balconies($event)">1</span>
+                  </div>
+                  <div class="radioinput radioinput9">
+                    <span (click)="balconies($event)">2</span>
+                  </div>
+                  <div class="radioinput radioinput9">
+                    <span (click)="balconies($event)">3</span>
+                  </div>
+                  <div *ngIf="otherbalcony != 0" class="radioinput radioinput9">
+                    <span (click)="balconies($event)">{{ otherbalcony }}</span>
+                  </div>
+                  <br />
+
+                  <!-- <div class="radioinput radioinput9">
+                    <span (click)="balconies($event)">More than 3</span>
+                  </div> -->
+                  <div
+                    class="hyperlinks_medium"
+                    *ngIf="ggg"
+                    style="display: block"
+                  >
+                    <span (click)="inputbalconies()"> + Add other</span>
+                  </div>
+
+                  <div class="addotherbutton" *ngIf="inputbalconiestype">
+                    <form (ngSubmit)="addBalconie(form.value)" #form="ngForm">
+                      <input
+                        ngModel
+                        name="otherbalcony"
+                        class="inputstyle"
+                        placeholder="Text"
+                        type="number"
+                      />
+                      <button
+                        type="submit"
+                        class="btn btn-primary"
+                        style="margin-left: 15px"
+                      >
+                        Done
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="col-md-6">
+                    <h5 class="headtext">Add Area Details</h5>
+                    <div class="">
+                      <span class="bf">Atleast one area type is mandatory</span>
+                    </div>
+                  </div>
+
+                  <div
+                    class="col-md-4"
+                    style="
+                      border: 1px solid grey;
+                      display: inline-flex;
+                      align-items: center;
+                      border-radius: 10px;
+                      margin-bottom: 15px;
+                    "
+                  >
+                    <div>
+                      <input
+                        ngcontent-jqe-c223=""
+                        name="Carpetarea"
+                        type="text"
+                        id="formControlLg"
+                        placeholder="Carpet Area"
+                        [value]="
+                          singlepropertylist.propertyDetail.step3.carpertArea
+                            .Carpetarea
+                        "
+                        class="form-control form-control-lg"
+                        style="
+                          border: none;
+                          border-top-right-radius: 0px;
+                          border-bottom-right-radius: 0px;
+                        "
+                        (keyup)="AreaDetails($event)"
+                      />
+                    </div>
+                    <div>
+                      <select
+                        class="form-control form-control-lg"
+                        id="formControlLg"
+                        name="Units"
+                        style="
+                          border: none;
+                          border-top-left-radius: 0px;
+                          border-bottom-left-radius: 0px;
+                        "
+                        (change)="Areadetails2($event)"
+                        [value]="
+                          singlepropertylist.propertyDetail.step3.carpertArea
+                            .Units
+                        "
+                      >
+                        <option selected value="cents">cents</option>
+                        <option value="sq.ft.">sq.ft.</option>
+                        <option value="sq.yards">sq.yards</option>
+                        <option value="sq.m.">sq.m.</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12" style="display: inline-flex">
+                    <div class="hyperlinks_medium">
+                      <span (click)="carpetarea()"> + Built-up Area</span>
+                    </div>
+                  </div>
+
+                  <div
+                    class="col-md-4"
+                    *ngIf="carpetareacontainer"
+                    style="
+                      border: 1px solid grey;
+                      display: inline-flex;
+                      align-items: center;
+                      border-radius: 10px;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    <div>
+                      <input
+                        ngcontent-jqe-c223=""
+                        type="text"
+                        id="formControlLg"
+                        name="builtuparea"
+                        placeholder="Built-up Area"
+                        class="form-control form-control-lg"
+                        style="
+                          border: none;
+                          border-top-right-radius: 0px;
+                          border-bottom-right-radius: 0px;
+                        "
+                        (keyup)="Builtuparea($event)"
+                        [value]="
+                          singlepropertylist.propertyDetail.step3.builtupArea
+                            .builtuparea
+                        "
+                      />
+                    </div>
+
+                    <div>
+                      <select
+                        class="form-control form-control-lg"
+                        id="formControlLg"
+                        name="Units"
+                        style="
+                          border: none;
+                          border-top-left-radius: 0px;
+                          border-bottom-left-radius: 0px;
+                        "
+                        (keyup)="Builtuparea2($event)"
+                        [value]="
+                          singlepropertylist.propertyDetail.step3.builtupArea
+                            .Units
+                        "
+                      >
+                        <option selected value="cents">cents</option>
+                        <option value="sq.ft.">sq.ft.</option>
+                        <option value="sq.yards">sq.yards</option>
+                        <option value="sq.m.">sq.m.</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="hyperlinks_medium">
+                    <span (click)="builtuparea()">
+                      + Add Super Built-up Area</span
+                    >
+                  </div>
+                  <div
+                    class="col-md-4"
+                    *ngIf="builtupareacontainer"
+                    style="
+                      border: 1px solid grey;
+                      display: inline-flex;
+                      align-items: center;
+                      border-radius: 10px;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    <div>
+                      <input
+                        ngcontent-jqe-c223=""
+                        type="text"
+                        id="formControlLg"
+                        name="superbuiltuparea"
+                        placeholder="Super Built-up Area"
+                        class="form-control form-control-lg"
+                        style="
+                          border: none;
+                          border-top-right-radius: 0px;
+                          border-bottom-right-radius: 0px;
+                        "
+                        (keyup)="superbuiltuparea($event)"
+                        [value]="
+                          singlepropertylist.propertyDetail.step3
+                            .squarebuiltupArea.superbuiltuparea
+                        "
+                      />
+                    </div>
+                    <div>
+                      <select
+                        class="form-control form-control-lg"
+                        id="formControlLg"
+                        name="Units"
+                        style="
+                          border: none;
+                          border-top-left-radius: 0px;
+                          border-bottom-left-radius: 0px;
+                        "
+                        (change)="superbuiltuparea2($event)"
+                        [value]="
+                          singlepropertylist.propertyDetail.step3
+                            .squarebuiltupArea.Units
+                        "
+                      >
+                        <option selected value="cents">cents</option>
+                        <option value="sq.ft.">sq.ft.</option>
+                        <option value="sq.yards">sq.yards</option>
+                        <option value="sq.m.">sq.m.</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h5 class="headtext">Describe your office</h5>
+                  <div class="col-md-4" style="margin-bottom: 10px">
+                    <div ngcontent-jqe-c223="" class="form-outline">
+                      <input
+                        ngcontent-jqe-c223=""
+                        type="text"
+                        id="formControlLg"
+                        placeholder="Mini. no. of Seats"
+                        [value]="
+                          singlepropertylist.propertyDetail.step3
+                            .minimumNoofSeats
+                        "
+                        class="form-control form-control-lg"
+                        (keyup)="officeinput($event)"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4" style="margin-bottom: 10px">
+                    <div ngcontent-jqe-c223="" class="form-outline">
+                      <input
+                        ngcontent-jqe-c223=""
+                        type="text"
+                        id="formControlLg"
+                        placeholder="Mixi. no. of Seats (optional)"
+                        [value]="
+                          singlepropertylist.propertyDetail.step3
+                            .maximumnoOfSeats
+                        "
+                        class="form-control form-control-lg"
+                        (keyup)="officeinput1($event)"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4" style="margin-bottom: 10px">
+                    <div ngcontent-jqe-c223="" class="form-outline">
+                      <input
+                        ngcontent-jqe-c223=""
+                        type="text"
+                        id="formControlLg"
+                        placeholder="No. of Cabins"
+                        [value]="singlepropertylist.propertyDetail.step3.Cabins"
+                        class="form-control form-control-lg"
+                        (keyup)="officeinput2($event)"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" style="margin-bottom: 15px">
+                <div class="col-md-12">
+                  <h5 class="headtext">No. of Meeting Rooms</h5>
+                  <div class="col-md-4">
+                    <div ngcontent-jqe-c223="" class="form-outline">
+                      <input
+                        ngcontent-jqe-c223=""
+                        type="text"
+                        id="formControlLg"
+                        placeholder="No. of Meeting Rooms"
+                        [value]="
+                          singlepropertylist.propertyDetail.step3.meetingroom
+                        "
+                        class="form-control form-control-lg"
+                        (keyup)="meetingroom($event)"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h5 class="headtext">
+                    Other rooms <span class="bf">(optional)</span>
+                  </h5>
+                  <div class="col-md-6 hh">
+                    <div class="radioinput radioinput10">
+                      <span (click)="extraroom($event)">+ Pooja Room</span>
+                    </div>
+                    <div class="radioinput radioinput10">
+                      <span (click)="extraroom($event)">+ Study Room</span>
+                    </div>
+                    <div class="radioinput radioinput10">
+                      <span (click)="extraroom($event)">+ Servant Room</span>
+                    </div>
+                    <br />
+                    <div class="radioinput radioinput10">
+                      <span (click)="extraroom($event)">+ Store Room</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h5 class="headtext">Pantry</h5>
+                  <div class="col-md-6 hh">
+                    <div class="radioinput radioinput20">
+                      <span (click)="Drypantry($event)">Dry</span>
+                    </div>
+
+                    <div class="radioinput radioinput20">
+                      <span (click)="Wetpantry($event)">Wet</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h5 class="headtext">Lift</h5>
+                  <div class="col-md-6 hh">
+                    <div class="radioinput radioinput21">
+                      <span (click)="Highspeedlift($event)"
+                        >High Speed Lift</span
+                      >
+                    </div>
+                    <div class="radioinput radioinput21">
+                      <span (click)="Servicelift($event)">Service Lift</span>
+                    </div>
+
+                    <div class="radioinput radioinput21">
+                      <span (click)="Powerlift($event)">Power Lift</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h5 class="headtext">Furnishing</h5>
+                  <div class="col-md-6 hh">
+                    <div class="radioinput radioinput11">
+                      <span
+                        (click)="funishring($event)"
+                        (click)="choosefurnished()"
+                        >Furnished</span
+                      >
+                    </div>
+
+                    <div class="radioinput radioinput11">
+                      <span
+                        (click)="funishring($event)"
+                        (click)="choosefurnished()"
+                        >Semi-furnished</span
+                      >
+                    </div>
+
+                    <div class="radioinput radioinput11">
+                      <span (click)="funishring($event)" (click)="unfurnished()"
+                        >un-furnished</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" *ngIf="furnishedoption">
+                <div class="col-md-6 borderbox">
+                  <span class="bf"
+                    >At least three furnishings are mandatory for
+                    furnished</span
+                  >
+                  <div class="row">
+                    <div
+                      class="col md-12"
+                      style="display: flex; margin-top: 15px"
+                    >
+                      <div class="col-md-6">
+                        <div
+                          class="radioinput radioinput3"
+                          (click)="declight()"
+                        >
+                          <span>-</span>
+                        </div>
+                        <span class="bf">{{ light }}</span>
+                        <div
+                          class="radioinput radioinput3"
+                          (click)="inclight()"
+                        >
+                          <span>+</span>
+                        </div>
+                        <span class="bf">Light</span>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="radioinput radioinput3" (click)="decfan()">
+                          <span>-</span>
+                        </div>
+                        <span class="bf">{{ Fans }}</span>
+                        <div class="radioinput radioinput3" (click)="incfan()">
+                          <span>+</span>
+                        </div>
+                        <span class="bf">Fans</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div
+                      class="col md-12"
+                      style="display: flex; margin-top: 15px"
+                    >
+                      <div class="col-md-6">
+                        <div class="radioinput radioinput3" (click)="decAc()">
+                          <span>-</span>
+                        </div>
+                        <span class="bf">{{ Ac }}</span>
+                        <div class="radioinput radioinput3" (click)="incAc()">
+                          <span>+</span>
+                        </div>
+                        <span class="bf">Ac</span>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="radioinput radioinput3" (click)="decTV()">
+                          <span>-</span>
+                        </div>
+                        <span class="bf">{{ TV }}</span>
+                        <div class="radioinput radioinput3" (click)="incTV()">
+                          <span>+</span>
+                        </div>
+                        <span class="bf">TV</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div
+                      class="col md-12"
+                      style="display: flex; margin-top: 15px"
+                    >
+                      <div class="col-md-6">
+                        <div class="radioinput radioinput3" (click)="decBeds()">
+                          <span>-</span>
+                        </div>
+                        <span class="bf">{{ Beds }}</span>
+                        <div class="radioinput radioinput3" (click)="incBeds()">
+                          <span>+</span>
+                        </div>
+                        <span class="bf">Beds</span>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div
+                          class="radioinput radioinput3"
+                          (click)="decWardrobe()"
+                        >
+                          <span>-</span>
+                        </div>
+                        <span class="bf">{{ Wardrobe }}</span>
+                        <div
+                          class="radioinput radioinput3"
+                          (click)="incWardrobe()"
+                        >
+                          <span>+</span>
+                        </div>
+                        <span class="bf">Wardrobe</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div
+                      class="col md-12"
+                      style="display: flex; margin-top: 15px"
+                    >
+                      <div class="col-md-6">
+                        <div
+                          class="radioinput radioinput3"
+                          (click)="decGeyser()"
+                        >
+                          <span>-</span>
+                        </div>
+                        <span class="bf">{{ Geyser }}</span>
+                        <div
+                          class="radioinput radioinput3"
+                          (click)="incGeyser()"
+                        >
+                          <span>+</span>
+                        </div>
+                        <span class="bf">Geyser</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div
+                      class="col md-12"
+                      style="display: flex; margin-top: 15px"
+                    >
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            style="cursor: pointer"
+                            class="form-check-input"
+                            id="WashingMachine"
+                            name="WashingMachine"
+                            value="WashingMachine"
+                            [checked]="
+                              this.singlepropertylist.propertyDetail.step3.equipment.indexOf(
+                                'WashingMachine'
+                              ) != -1
+                            "
+                            (change)="checkboxitem($event)"
+                          />
+                          <label
+                            class="form-check-label Fontcolor"
+                            for="WashingMachine"
+                            style="cursor: pointer"
+                            >Washing Machine</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            style="cursor: pointer"
+                            class="form-check-input"
+                            id="Stove"
+                            name="Stove"
+                            value="Stove"
+                            [checked]="
+                              this.singlepropertylist.propertyDetail.step3.equipment.indexOf(
+                                'Stove'
+                              ) != -1
+                            "
+                            (change)="checkboxitem($event)"
+                          />
+                          <label
+                            class="form-check-label Fontcolor"
+                            for="Stove"
+                            style="cursor: pointer"
+                            >Stove</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div
+                      class="col md-12"
+                      style="display: flex; margin-top: 15px"
+                    >
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            style="cursor: pointer"
+                            class="form-check-input"
+                            id="Fridge"
+                            name="Fridge"
+                            value="Fridge"
+                            (change)="checkboxitem($event)"
+                            [checked]="
+                              this.singlepropertylist.propertyDetail.step3.equipment.indexOf(
+                                'Fridge'
+                              ) != -1
+                            "
+                          />
+                          <label
+                            class="form-check-label Fontcolor"
+                            for="Fridge"
+                            style="cursor: pointer"
+                            >Fridge</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            style="cursor: pointer"
+                            class="form-check-input"
+                            id="waterpurify"
+                            name="option4"
+                            value="waterpurify"
+                            (change)="checkboxitem($event)"
+                            [checked]="
+                              this.singlepropertylist.propertyDetail.step3.equipment.indexOf(
+                                'waterpurify'
+                              ) != -1
+                            "
+                          />
+                          <label
+                            class="form-check-label Fontcolor"
+                            style="cursor: pointer"
+                            for="waterpurify"
+                            >Water Purifier</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div
+                      class="col md-12"
+                      style="display: flex; margin-top: 15px"
+                    >
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            style="cursor: pointer"
+                            class="form-check-input"
+                            id="Microwave"
+                            name="Microwave"
+                            value="Microwave"
+                            (change)="checkboxitem($event)"
+                            [checked]="
+                              this.singlepropertylist.propertyDetail.step3.equipment.indexOf(
+                                'Microwave'
+                              ) != -1
+                            "
+                          />
+                          <label
+                            class="form-check-label Fontcolor"
+                            style="cursor: pointer"
+                            for="Microwave"
+                            >Microwave</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            style="cursor: pointer"
+                            class="form-check-input"
+                            id="ModularKitchen"
+                            name="ModularKitchen"
+                            value="ModularKitchen"
+                            (change)="checkboxitem($event)"
+                            [checked]="
+                              this.singlepropertylist.propertyDetail.step3.equipment.indexOf(
+                                'ModularKitchen'
+                              ) != -1
+                            "
+                          />
+                          <label
+                            class="form-check-label Fontcolor"
+                            style="cursor: pointer"
+                            for="ModularKitchen"
+                            >Modular Kitchen</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div
+                      class="col md-12"
+                      style="display: flex; margin-top: 15px"
+                    >
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            style="cursor: pointer"
+                            class="form-check-input"
+                            id="Chimney"
+                            name="Chimney"
+                            value="Chimney"
+                            (change)="checkboxitem($event)"
+                            [checked]="
+                              this.singlepropertylist.propertyDetail.step3.equipment.indexOf(
+                                'Chimney'
+                              ) != -1
+                            "
+                          />
+                          <label
+                            class="form-check-label Fontcolor"
+                            style="cursor: pointer"
+                            for="Chimney"
+                            >Chimney</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            style="cursor: pointer"
+                            class="form-check-input"
+                            id="DinningTable"
+                            name="DinningTable"
+                            value="DinningTable"
+                            (change)="checkboxitem($event)"
+                            [checked]="
+                              this.singlepropertylist.propertyDetail.step3.equipment.indexOf(
+                                'DinningTable'
+                              ) != -1
+                            "
+                          />
+                          <label
+                            class="form-check-label Fontcolor"
+                            style="cursor: pointer"
+                            for="DinningTable"
+                            >Dinning Table</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div
+                      class="col md-12"
+                      style="display: flex; margin-top: 15px"
+                    >
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            style="cursor: pointer"
+                            class="form-check-input"
+                            id="Curtains"
+                            name="Curtains"
+                            value="Curtains"
+                            (change)="checkboxitem($event)"
+                            [checked]="
+                              this.singlepropertylist.propertyDetail.step3.equipment.indexOf(
+                                'Curtains'
+                              ) != -1
+                            "
+                          />
+                          <label
+                            class="form-check-label Fontcolor"
+                            style="cursor: pointer"
+                            for="Curtains"
+                            >Curtains</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            style="cursor: pointer"
+                            class="form-check-input"
+                            id="ExhaustFan"
+                            name="ExhaustFan"
+                            value="ExhaustFan"
+                            (change)="checkboxitem($event)"
+                            [checked]="
+                              this.singlepropertylist.propertyDetail.step3.equipment.indexOf(
+                                'ExhaustFan'
+                              ) != -1
+                            "
+                          />
+                          <label
+                            class="form-check-label Fontcolor"
+                            style="cursor: pointer"
+                            for="ExhaustFan"
+                            >Exhaust Fan</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div
+                      class="col md-12"
+                      style="display: flex; margin-top: 15px"
+                    >
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            style="cursor: pointer"
+                            class="form-check-input"
+                            id="Sofa"
+                            name="Sofa"
+                            value="Sofa"
+                            (change)="checkboxitem($event)"
+                            [checked]="
+                              this.singlepropertylist.propertyDetail.step3.equipment.indexOf(
+                                'Sofa'
+                              ) != -1
+                            "
+                          />
+                          <label
+                            class="form-check-label Fontcolor"
+                            style="cursor: pointer"
+                            for="Sofa"
+                            >Sofa</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            style="cursor: pointer"
+                            class="form-check-input"
+                            id="ChillerPlant"
+                            name="ChillerPlant"
+                            value="ChillerPlant"
+                            (change)="checkboxitem($event)"
+                            [checked]="
+                              this.singlepropertylist.propertyDetail.step3.equipment.indexOf(
+                                'ChillerPlant'
+                              ) != -1
+                            "
+                          />
+                          <label
+                            class="form-check-label Fontcolor"
+                            style="cursor: pointer"
+                            for="ChillerPlant"
+                            >Chiller Plant</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div
+                      class="col md-12"
+                      style="display: flex; margin-top: 15px"
+                    >
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            style="cursor: pointer"
+                            class="form-check-input"
+                            id="WaitingArea"
+                            name="WaitingArea"
+                            value="WaitingArea"
+                            (change)="checkboxitem($event)"
+                            [checked]="
+                              this.singlepropertylist.propertyDetail.step3.equipment.indexOf(
+                                'WaitingArea'
+                              ) != -1
+                            "
+                          />
+                          <label
+                            class="form-check-label Fontcolor"
+                            style="cursor: pointer"
+                            for="WaitingArea"
+                            >Waiting Area</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-10" style="margin-top: 15px">
+                    <h6 class="Fontcolor">Types of AC :</h6>
+                    <div class="form-control form-control-lg">
+                      <select
+                        class="form-select"
+                        id="orm-control form-control-lgSelect02"
+                        style="border: none"
+                        (change)="AcType($event)"
+                        [value]="singlepropertylist.propertyDetail.step3.AcType"
+                      >
+                        <option selected>---</option>
+                        <option value="Window Air Conditioner">
+                          Window Air Conditioner.
+                        </option>
+                        <option value="Air Condition">Air Condition</option>
+                        <option value="Portable Air Conditioner">
+                          Portable Air Conditioner.
+                        </option>
+                        <option value="Smart Air Conditioner">
+                          Smart Air Conditioner.
+                        </option>
+                        <option value="Floor Mounted Air Conditioner">
+                          Floor Mounted Air Conditioner.
+                        </option>
+                        <option value=" Geothermal Air Conditioning System">
+                          Geothermal Air Conditioning System.
+                        </option>
+                        <option value="Split Air Conditioner">
+                          Split Air Conditioner.
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h5 class="headtext">
+                    Reserved Parking <span class="bf">(optional)</span>
+                  </h5>
+                  <div class="col-md-12 hh">
+                    <span class="bf">Covered Parking</span>
+                    <div class="radioinput radioinput3" (click)="decParking()">
+                      <span>-</span>
+                    </div>
+                    <span class="bf">{{ parking }}</span>
+                    <div class="radioinput radioinput3" (click)="incParking()">
+                      <span>+</span>
+                    </div>
+                    <span class="bf">Open Parking</span>
+                    <div
+                      class="radioinput radioinput3"
+                      (click)="OpendecParking()"
+                    >
+                      <span>-</span>
+                    </div>
+                    <span class="bf">{{ openparking }}</span>
+                    <div
+                      class="radioinput radioinput3"
+                      (click)="OpenincParking()"
+                    >
+                      <span>+</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h5 class="headtext">Fire safety measures include</h5>
+                  <div class="col-md-6 hh">
+                    <div class="radioinput radioinput01">
+                      <span (click)="firesafity($event)"
+                        >+Fire Extinguisher</span
+                      >
+                    </div>
+                    <div class="radioinput radioinput01">
+                      <span (click)="firesafity($event)">+Fire Sensors</span>
+                    </div>
+                    <div class="radioinput radioinput01">
+                      <span (click)="firesafity($event)">+Sprinklers</span>
+                    </div>
+                    <br />
+                    <div class="radioinput radioinput01">
+                      <span (click)="firesafity($event)">+Fire House</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 gg">
+                  <h5 class="headtext">Floor Details</h5>
+                  <span class="bf">Total no of floors and floor details</span>
+                  <div class="col-md-12 hh mm">
+                    <div class="col-md-3">
+                      <div ngcontent-jqe-c223="" class="form-outline">
+                        <input
+                          ngcontent-jqe-c223=""
+                          type="text"
+                          id="formControlLg"
+                          placeholder="Total Floors"
+                          [value]="
+                            singlepropertylist.propertyDetail.step3.FloorDetail
+                          "
+                          class="form-control form-control-lg"
+                          (keyup)="floorDetails($event)"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-control form-control-lg">
+                        <select
+                          class="form-select"
+                          id="orm-control form-control-lgSelect02"
+                          style="border: none"
+                          (change)="Onfloordetails($event)"
+                          [value]="
+                            singlepropertylist.propertyDetail.step3
+                              .OnFloorDetails
+                          "
+                        >
+                          <option selected>Property on Floor</option>
+                          <option value="Basement">Basement</option>
+                          <option value="Lower Ground">Lower Ground</option>
+                          <option value="Ground">Ground</option>
+                          <option value="Ist Floor">Ist Floor</option>
+                          <option value="2nd Floor">2nd Floor</option>
+                          <option value="3rd Floor">3rd Floor</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="col-md-12 commercial1">
+                    <h5 class="headtext">Availability Status</h5>
+                    <div class="col-md-3" style="margin-bottom: 15px">
+                      <div class="form-control form-control-lg">
+                        <select
+                          class="form-select"
+                          id="orm-control form-control-lgSelect02"
+                          style="border: none"
+                          (change)="propertystatus($event)"
+                        >
+                          <option value="Available" selected="selected">
+                            🟢 Available
+                          </option>
+
+                          <option value="Not Available" selected="">
+                            🔴 Not Available
+                          </option>
+
+                          <option value="Vacant By 3 months" selected="">
+                            🟡 Vacant By 3 months
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <br />
+
+                    <div class="radioinput radioinput12">
+                      <span (click)="undercon($event)" (click)="ready()"
+                        >Ready to move</span
+                      >
+                    </div>
+                    <div class="radioinput radioinput12">
+                      <span (click)="undercon($event)" (click)="under()"
+                        >Under construction</span
+                      >
+                    </div>
+                    <div class="col-md-12" *ngIf="readycontainer">
+                      <div class="col-md-12 commercial">
+                        <h5 class="headtext">Age of property</h5>
+                        <div class="radioinput radioinput13">
+                          <span (click)="ageproperty($event)">0-1 years</span>
+                        </div>
+
+                        <div class="radioinput radioinput13">
+                          <span (click)="ageproperty($event)">1-5 years</span>
+                        </div>
+
+                        <div class="radioinput radioinput13">
+                          <span (click)="ageproperty($event)">5-10 years</span>
+                        </div>
+                        <div class="radioinput radioinput13">
+                          <span (click)="ageproperty($event)">10+ years</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12" *ngIf="undercontainer">
+                      <div class="col-md-12 commercial">
+                        <h5 class="headtext">Possession By</h5>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <select
+                              class="form-select"
+                              id="orm-control form-control-lgSelect02"
+                              (change)="OnYearexpected($event)"
+                              [value]="
+                                singlepropertylist.propertyDetail.step3
+                                  .UnderConstructionYear
+                              "
+                            >
+                              <option value="Expecded by">Expecded by</option>
+                              <option value="within 3months">
+                                within 3months
+                              </option>
+                              <option value="within 6months">
+                                within 6months
+                              </option>
+                              <option value="By 2023">By 2023</option>
+                              <option value="By 2024">By 2024</option>
+                              <option value="By 2025">By 2025</option>
+                              <option value="By 2026">By 2026</option>
+                              <option value="By 2027">By 2027</option>
+                              <option value="By 2028">By 2028</option>
+                              <option value="By 2029">By 2029</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <select
+                              class="form-select"
+                              id="orm-control form-control-lgSelect02"
+                              (change)="onMonthsexcepted($event)"
+                              [value]="
+                                singlepropertylist.propertyDetail.step3
+                                  .UnderConstructionMonth
+                              "
+                            >
+                              <option value="Month">Month</option>
+                              <option value="January">January</option>
+                              <option value="February">February</option>
+                              <option value="March">March</option>
+                              <option value="April">April</option>
+                              <option value="May">May</option>
+                              <option value="June">June</option>
+                              <option value="July">July</option>
+                              <option value="August">August</option>
+                              <option value="September">September</option>
+                              <option value="October">October</option>
+                              <option value="November">November</option>
+                              <option value="December">December</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 15px">
+          <button type="button" matStepperPrevious class="btn btn-primary bgg">
+            Back
+          </button>
+          <button type="button" matStepperNext class="btn btn-primary bgg">
+            Continue
+          </button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="forthFormGroup" label="Photos">
+      <form [formGroup]="forthFormGroup" class="kkkk">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-9">
+                <h2 class="lllll">
+                  Add photos of your property
+                  <span
+                    class="kk desktopHeader_italics__3klzF caption_subdued_medium d-inline-block"
+                    >(Optional)</span
+                  >
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="row pic-text">
+            <div class="col-md-12">
+              <div class="col-md-6">
+                <p class="kk">
+                  A picture is worth a thousand words. 87% of buyers look at
+                  photos before buying
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-6">
+                <h4 class="Fontcolor">Upload from desktop</h4>
+                <div
+                  class="imageuplodecontainer"
+                  dropzone
+                  (hovered)="toggleHover($event)"
+                  (dropped)="onDrop($event)"
+                  [class.hovering]="isHovering"
+                >
+                  <i
+                    class="fa-solid fa-cloud-arrow-up"
+                    style="margin-top: 30px; font-size: 30px"
+                  ></i>
+                  <div
+                    class="addPhotos_textContainer__2iQJ8 caption_strong_medium"
+                  >
+                    <span class="vert-align-middle"
+                      >Drag and drop your photos here
+                    </span>
+                  </div>
+                  <div
+                    class="addPhotos_textContainer__2iQJ8 caption_strong_small"
+                  >
+                    Upload 4 photos of max size 10 mb in format png, jpg, jpeg.
+                  </div>
+                  <div class="addPhotos_orWrap__1U9mB">
+                    <span class="caption_strong_small">OR</span>
+                  </div>
+                  <div class="file">
+                    <input
+                      type="file"
+                      (change)="onDrop($event.target.files)"
+                      variant="secondaryRegular"
+                      font-style="semi"
+                      class="pageComponent buttons_primaryRegular__rU-bm buttons_semi__1it_o undefined"
+                    />
+                  </div>
+                </div>
+                <!-- <div style="display: flex">
+                  <div *ngFor="let url of imgArr; let i = index">
+                    <img
+                      style="width: 75%; height: 50%"
+                      src="{{ url }}"
+                      alt="no im,age"
+                    />
+                    <button (click)="removeSelectedFile(i)">delete</button>
+                  </div>
+                </div>
+                <input type="file" (change)="inpChange($event)" /> -->
+
+                <h3 class="Fontcolor">Uploads</h3>
+                <div *ngFor="let file of files">
+                  <upload-task [file]="file"></upload-task>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-6">
+                <div
+                  class="alertBanner_alertBanner__1EZXm alertBanner_yellow__1BBZE photoUpload_width65__3zWwl pageComponent"
+                >
+                  <i class="fa-sharp fa-solid fa-circle-exclamation"> </i>
+                  <span class="" style="margin-left: 5px; font-size: 13px">
+                    Without photos your ad will be ignored by buyers</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row btnmar">
+            <div class="col-md-12">
+              <div class="col-md-6">
+                <div id="PhotoDetailsButtonsWrapper-widget">
+                  <button
+                    type="button"
+                    class="btn btn-primary buttons_primaryRegular__rU-bm"
+                  >
+                    Continue Without Photo
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button
+              type="button"
+              matStepperPrevious
+              class="btn btn-primary bgg"
+            >
+              Back
+            </button>
+            <button type="button" matStepperNext class="btn btn-primary bgg">
+              Continue
+            </button>
+          </div>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="fifthFormGroup" label="Pricing & Others">
+      <form [formGroup]="fifthFormGroup" class="kkkk">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-9">
+                <h2 class="lllll">Add pricing and details...</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 10px">
+            <div class="col-md-12">
+              <div class="col-md-8">
+                <div>
+                  <h4 class="headtext" style="display: inline">Ownership</h4>
+                  <i
+                    class="bi bi-question-circle"
+                    style="margin-left: 10px"
+                  ></i>
+                </div>
+                <div class="btnss" style="margin-top: 10px">
+                  <div class="radioinput radioinput14">
+                    <span (click)="ownershipitem($event)">Freehold</span>
+                  </div>
+
+                  <div
+                    class="radioinput radioinput14"
+                    style="margin-left: 10px"
+                  >
+                    <span (click)="ownershipitem($event)">leasehold</span>
+                  </div>
+                  <div
+                    class="radioinput radioinput14"
+                    style="margin-left: 10px"
+                  >
+                    <span (click)="ownershipitem($event)"
+                      >Co-operative society</span
+                    >
+                  </div>
+
+                  <div
+                    class="radioinput radioinput14"
+                    style="margin-left: 10px"
+                  >
+                    <span (click)="ownershipitem($event)"
+                      >Power of Attorney</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row pic-text" style="margin-top: 25px">
+            <div class="col-md-12">
+              <div class="col-md-6">
+                <!-- <p class="kk">A picture is worth a thousand words. 87% of buyers look at photos before buying</p> -->
+                <h4 class="headtext">Price Details</h4>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 10px">
+            <div class="col-md-12">
+              <div class="col-md-8" style="display: flex">
+                <div class="col-md-5 form-outline">
+                  <span class="bf">₹ Expected Price :</span>
+                  <input
+                    type="text"
+                    id="formControlLg"
+                    class="form-control form-control-lg"
+                    placeholder="₹ Expected Price"
+                    [value]="
+                      singlepropertylist.propertyDetail.step5.ExpectPrice
+                    "
+                    (keyup)="expectPrice($event)"
+                  />
+                  <div
+                    class="input_placeholder_inactive multiple_input Fontcolor"
+                  >
+                    ₹ Price in words
+                  </div>
+                </div>
+                <div class="col-md-4 form-outline" style="margin-left: 10px">
+                  <span class="bf">₹ Price per Sq.Ft. :</span>
+                  <input
+                    type="text"
+                    id="formControlLg"
+                    class="form-control form-control-lg"
+                    placeholder="₹ Price per Sq.Ft."
+                    [value]="singlepropertylist.propertyDetail.step5.PricePerSQ"
+                    (keyup)="priceperSQ($event)"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 25px; display: flex">
+            <div class="col-md-12" style="display: flex">
+              <div class="col-md-3">
+                <div class="form-check" (change)="taxpricecheck($event)">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="Tax and Govt. charges"
+                    name="Tax and Govt. charges"
+                    value="Tax and Govt. charges"
+                    style="cursor: pointer"
+                    [checked]="
+                      this.singlepropertylist.propertyDetail.step5.tex.indexOf(
+                        'Tax and Govt. charges'
+                      ) != -1
+                    "
+                  />
+                  <label
+                    class="form-check-label"
+                    for="Tax and Govt. charges"
+                    style="cursor: pointer; color: #ffffff"
+                    >Tax and Govt. charges excluded</label
+                  >
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-check" (change)="taxpricecheck($event)">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="Price Negotiable"
+                    name="Price Negotiable"
+                    value="Price Negotiable"
+                    style="cursor: pointer"
+                    [checked]="
+                      this.singlepropertylist.propertyDetail.step5.tex.indexOf(
+                        'Price Negotiable'
+                      ) != -1
+                    "
+                  />
+                  <label
+                    class="form-check-label"
+                    for="Price Negotiable"
+                    style="cursor: pointer; color: #ffffff"
+                    >Price Negotiable</label
+                  >
+                </div>
+              </div>
+              <br />
+            </div>
+            <div class="col-md-12" style="margin-top: 15px">
+              <div class="col-md-4">
+                <div class="addingcontent">
+                  <div class="link">
+                    <span
+                      style="color: #0078db; cursor: pointer"
+                      (click)="addpricing()"
+                    >
+                      <i class="bi bi-plus"></i> Add more pricing details</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="addpricingbox">
+            <div class="col-md-4">
+              <div>
+                <h6
+                  class="xidHeading_headingText__Ulc2a"
+                  style="display: inline; color: #ffffff"
+                >
+                  Additional Pricing Details
+                  <em>(Optional)</em>
+                </h6>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="" style="display: inline-flex; align-items: center">
+                <div>
+                  <input
+                    ngcontent-jqe-c223=""
+                    type="text"
+                    id="formControlLg"
+                    name="maintenance"
+                    placeholder="Maintenance"
+                    (keyup)="Addmorepricingdetail1($event)"
+                    class="form-control form-control-lg"
+                    style="
+                      border: none;
+                      border-top-right-radius: 0px;
+                      border-bottom-right-radius: 0px;
+                    "
+                    [value]="
+                      singlepropertylist.propertyDetail.step5.Maintenance
+                        .maintenance
+                    "
+                  />
+                </div>
+                <div>
+                  <select
+                    class="form-control form-control-lg"
+                    id="formControlLg"
+                    name="paymentperiod"
+                    (change)="Paymentperiod($event)"
+                    style="
+                      border: none;
+                      border-top-left-radius: 0px;
+                      border-bottom-left-radius: 0px;
+                    "
+                    [value]="
+                      singlepropertylist.propertyDetail.step5.Maintenance
+                        .paymentperiod
+                    "
+                  >
+                    <option value="One Time" selected>One Time</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Annually">Annually</option>
+                    <option value="Unit/ Monthly">Unit/ Monthly</option>
+                  </select>
+                </div>
+              </div>
+              <div class="2ndinput" style="margin-top: 13px">
+                <div class="form-outline">
+                  <input
+                    type="text"
+                    id="formControlLg"
+                    class="form-control form-control-lg"
+                    (keyup)="Addmorepricingdetail2($event)"
+                    placeholder="Expected Rental"
+                    [value]="
+                      singlepropertylist.propertyDetail.step5.ExpectedRental
+                    "
+                  />
+                </div>
+              </div>
+              <div class="form-outline" style="margin-top: 13px">
+                <input
+                  type="text"
+                  id="formControlLg"
+                  class="form-control form-control-lg"
+                  (keyup)="Addmorepricingdetail3($event)"
+                  placeholder="Booking Amount"
+                  [value]="
+                    singlepropertylist.propertyDetail.step5.BookingAmount
+                  "
+                />
+              </div>
+
+              <div class="2ndinput" style="margin-top: 13px">
+                <div class="form-outline">
+                  <input
+                    type="text"
+                    id="formControlLg"
+                    class="form-control form-control-lg"
+                    (keyup)="Addmorepricingdetail4($event)"
+                    placeholder="Annual Dues Payable"
+                    [value]="
+                      singlepropertylist.propertyDetail.step5.AnnualDuesPayable
+                    "
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 15px">
+            <div class="col-md-12">
+              <h5 class="headtext">
+                Security deposit <span class="bf">(Optional)</span>
+              </h5>
+              <div class="col-md-6 hh">
+                <div class="radioinput radioinput22">
+                  <span (click)="SecurityDeposite($event)">Fixed</span>
+                </div>
+
+                <div class="radioinput radioinput22">
+                  <span (click)="SecurityDeposite($event)"
+                    >Multiple of Rent</span
+                  >
+                </div>
+
+                <div class="radioinput radioinput22">
+                  <span (click)="SecurityDeposite($event)">None</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row pic-text" style="margin-top: 15px">
+            <div class="col-md-12">
+              <div class="col-md-6">
+                <!-- <p class="kk">A picture is worth a thousand words. 87% of buyers look at photos before buying</p> -->
+                <h4 class="headtext">Lock-in Period</h4>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 10px">
+            <div class="col-md-12">
+              <div class="col-md-8" style="display: flex">
+                <div class="col-md-5 form-outline">
+                  <input
+                    type="text"
+                    id="formControlLg"
+                    class="form-control form-control-lg"
+                    placeholder="Enter Number of Months"
+                    [value]="
+                      singlepropertylist.propertyDetail.step5.MonthNumber
+                    "
+                    (keyup)="Monthsnumber($event)"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 15px">
+            <div class="col-md-12">
+              <h5 class="headtext">Do you charge brokarage?</h5>
+              <div class="col-md-6 hh">
+                <div class="col-md-12 gg">
+                  <div class="radioinput radioinput23">
+                    <span
+                      (click)="yesBrocage($event)"
+                      (click)="brokerageoption()"
+                      >Yes</span
+                    >
+                  </div>
+
+                  <div class="radioinput radioinput23">
+                    <span (click)="yesBrocage($event)" (click)="nooptn()"
+                      >No</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" *ngIf="brokerage">
+            <div class="col-md-12">
+              <div class="col-md-6 hh">
+                <div class="col-md-12 ff">
+                  <div class="radioinput fixed" style="margin-right: 10px">
+                    <span
+                      (click)="Fixedbrokerage($event)"
+                      (click)="inputfieldbroker()"
+                      >Fixed</span
+                    >
+                  </div>
+
+                  <div class="radioinput fixed">
+                    <span
+                      (click)="Fixedbrokerage($event)"
+                      (click)="inputfieldbroker()"
+                      >Percentage of Price</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" *ngIf="inputfieldbro">
+            <div class="col-md-12">
+              <div class="col-md-8" style="margin-bottom: 5px">
+                <div class="col-md-5 form-outline">
+                  <input
+                    type="text"
+                    id="formControlLg"
+                    class="form-control form-control-lg"
+                    placeholder="Enter brokerage charge here"
+                    (keyup)="brokerageinput($event)"
+                    [value]="
+                      singlepropertylist.propertyDetail.step5.brokerageinput
+                    "
+                  />
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-check" (change)="brokeragenegiotiable($event)">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="Brokerage Negotiable"
+                    name="Brokerage Negotiable"
+                    value="Brokerage Negotiable"
+                    style="cursor: pointer"
+                    [checked]="
+                      this.singlepropertylist.propertyDetail.step5.Brokarageoption.indexOf(
+                        'Brokerage Negotiable'
+                      ) != -1
+                    "
+                  />
+                  <label
+                    class="form-check-label"
+                    for="Brokerage Negotiable"
+                    style="cursor: pointer; color: #ffffff"
+                    >Brokerage Negotiable</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 15px">
+            <div class="col-md-12">
+              <h5 class="headtext">Is your office fire NOC Certified</h5>
+              <div class="col-md-6 hh">
+                <div class="radioinput radioinput24">
+                  <span (click)="fireNoc($event)">Yes</span>
+                </div>
+                <div class="radioinput radioinput24">
+                  <span (click)="fireNoc($event)">No</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 15px">
+            <div class="col-md-12">
+              <h5 class="headtext">Occupancy Certified</h5>
+              <div class="col-md-6 hh">
+                <div class="radioinput radioinput25">
+                  <span (click)="OccurancyCertified($event)">Yes</span>
+                </div>
+
+                <div class="radioinput radioinput25">
+                  <span (click)="OccurancyCertified($event)">No</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row btnmar">
+            <div class="col-md-12">
+              <div class="col-md-6">
+                <div>
+                  <h4 class="headtext" style="display: inline">
+                    Is it Pre-leased / Pre-Rented
+                  </h4>
+                  <i
+                    class="bi bi-question-circle"
+                    style="margin-left: 10px"
+                  ></i>
+                </div>
+                <div class="linetext">
+                  <em>for properties that are already rented out</em>
+                </div>
+                <div class="button" style="margin-top: 15px">
+                  <div class="radioinput radioinput15">
+                    <span (click)="yes()" (click)="yesvalue($event)">Yes</span>
+                  </div>
+                  <div
+                    class="radioinput radioinput15"
+                    style="margin-left: 10px"
+                  >
+                    <span (click)="no()" (click)="yesvalue($event)">No</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 50px" *ngIf="yescon">
+            <div>
+              <h4 class="headtext" style="display: inline">
+                Pre-leased / Pre-Rented Details
+              </h4>
+              <i class="bi bi-question-circle" style="margin-left: 10px"></i>
+            </div>
+            <div class="linetext">
+              <em>Lease / Rent related details of your property</em>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-outline">
+                <input
+                  type="text"
+                  id="formControlLg"
+                  class="form-control form-control-lg"
+                  placeholder="₹ Current rent per month"
+                  (keyup)="addprerelease($event)"
+                  [value]="singlepropertylist.propertyDetail.step5.Currentrent"
+                />
+              </div>
+              <div class="2ndinput" style="margin-top: 13px">
+                <div class="form-outline">
+                  <input
+                    type="text"
+                    id="formControlLg"
+                    class="form-control form-control-lg"
+                    placeholder="Lease tenure in years"
+                    (keyup)="addprerelease1($event)"
+                    [value]="
+                      singlepropertylist.propertyDetail.step5.Leasetenure
+                    "
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="addingcontent">
+              <div class="link">
+                <span
+                  style="margin-left: 10px; color: #0078db"
+                  (click)="addoptions()"
+                >
+                  <i class="bi bi-plus"></i>Add Annual Rent Increament & Leased
+                  to</span
+                >
+              </div>
+            </div>
+
+            <div class="addingitem" *ngIf="intopt">
+              <div class="col-md-6">
+                <div class="form-outline">
+                  <input
+                    type="text"
+                    id="formControlLg"
+                    class="form-control form-control-lg"
+                    placeholder="Annual rent increase in % (Optional)"
+                    (keyup)="addprerelease2($event)"
+                    [value]="singlepropertylist.propertyDetail.step5.Annualrent"
+                  />
+                </div>
+                <div class="2ndinput" style="margin-top: 13px">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="formControlLg"
+                      class="form-control form-control-lg"
+                      placeholder="Leased to - Business Type (Optional)"
+                      [value]="
+                        singlepropertylist.propertyDetail.step5.BusinessType
+                      "
+                      (keyup)="addprerelease3($event)"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 gg">
+              <h5 class="headtext">
+                Your office was previously used for
+                <span class="bf">(optional)</span>
+              </h5>
+              <span class="bf">*You can select upto 3</span>
+              <div class="col-md-12 hh mm">
+                <div class="col-md-3">
+                  <div class="form-control form-control-lg">
+                    <select
+                      class="form-select"
+                      id="orm-control form-control-lgSelect02"
+                      style="border: none"
+                      (change)="PreofficeType($event)"
+                      [value]="
+                        singlepropertylist.propertyDetail.step5.PreOfficeType
+                      "
+                    >
+                      <option selected>Select</option>
+                      <option value="IT Service">IT Service</option>
+                      <option value="Cellular office">Cellular office</option>
+                      <option value="Group office">Group office</option>
+                      <option value="Combine office">Combine office</option>
+                      <option value=" Private Office">Private Office</option>
+                      <option value="Warehouse Office">Warehouse Office</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 20px">
+            <div class="col-md-12">
+              <div class="col-md-6">
+                <div>
+                  <h4 class="headtext" style="display: inline">
+                    What makes your property unique
+                  </h4>
+                </div>
+                <div class="textwhat">
+                  <p class="caption_strong_medium" style="margin-top: 0px">
+                    Adding description will increase your listing visibility
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="col-md-6">
+                <textarea
+                  name=""
+                  id=""
+                  rows="4"
+                  style="width: 100%"
+                  placeholder="Share some details about your property like spacious rooms, well maintained facilities.."
+                  [value]="singlepropertylist.propertyDetail.step5.description"
+                  (keyup)="descriptionfield($event)"
+                ></textarea>
+                <div class="suggestion">
+                  <div class="caption_strong_small" style="margin-top: -5px">
+                    Minimum 30 characters required
+                    <span style="display: block; text-align: right"
+                      >0/5000</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 15px">
+              <button
+                type="button"
+                matStepperPrevious
+                class="btn btn-primary bgg"
+              >
+                Back
+              </button>
+              <button
+                type="button"
+                (click)="updatebasicDetails()"
+                class="btn btn-primary bgg"
+              >
+                update
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </mat-step>
+  </mat-stepper>
+</ng-container>

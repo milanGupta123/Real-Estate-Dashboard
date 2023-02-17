@@ -1,0 +1,204 @@
+<main id="main" class="main">
+  <div class="container" style="width: 100%">
+    <section
+      class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4"
+    >
+      <div class="row justify-content-center">
+        <div
+          class="col-lg-12 col-md-6 d-flex flex-column align-items-center justify-content-center"
+        >
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="loginbox">
+                <div class="pt-4 pb-2">
+                  <div class="d-flex justify-content-center py-4">
+                    <a
+                      href="index.html"
+                      class="logo d-flex align-items-center w-auto"
+                    >
+                      <img src="assets/img/logo.png" alt="" />
+                      <span class="d-none d-lg-block">FOUNDERS</span>
+                    </a>
+                  </div>
+
+                  <h5 class="card-title text-center pb-0 fs-4">
+                    Login to Your Account
+                  </h5>
+                </div>
+                <mat-card class="box">
+                  <form class="example-form">
+                    <mat-card-content>
+                      <mat-form-field class="example-full-width">
+                        <input
+                          matInput
+                          placeholder="Username"
+                          name="user"
+                          [(ngModel)]="user"
+                        />
+                      </mat-form-field>
+                      <br />
+                      <mat-form-field class="example-full-width">
+                        <input
+                          name="pass"
+                          matInput
+                          [type]="showPassword ? 'text' : 'password'"
+                          placeholder="Password"
+                          [(ngModel)]="pass"
+                        />
+                        <mat-icon
+                          matSuffix
+                          (click)="togglePasswordVisibility()"
+                        >
+                          {{ showPassword ? "visibility" : "visibility_off" }}
+                        </mat-icon>
+                      </mat-form-field>
+                    </mat-card-content>
+                    <button
+                      mat-stroked-button
+                      color="accent"
+                      class="btn-block loginbtn"
+                      (click)="login()"
+                    >
+                      Login
+                    </button>
+                  </form>
+                </mat-card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- <section class="login-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 login-sec">
+          <h2 class="text-center">Login Now</h2>
+          <form class="login-form">
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="text-uppercase"
+                >Username</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Username"
+                name="user"
+                [(ngModel)]="user"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1" class="text-uppercase"
+                >Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                name="pass"
+                [type]="showPassword ? 'text' : 'password'"
+                placeholder="Password"
+                [(ngModel)]="pass"
+              />
+              <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                {{ showPassword ? "visibility" : "visibility_off" }}
+              </mat-icon>
+            </div>
+
+            <div class="form-check" style="margin-top: 25px; margin-left: 75px">
+              <button
+                type="submit"
+                class="btn btn-login float-right"
+                (click)="login()"
+              >
+                Login
+              </button>
+            </div>
+          </form>
+          <div class="copy-text">
+            Created with <i class="fa fa-heart"></i> by
+            <a href="http://grafreez.com">Velldone.com</a>
+          </div>
+        </div>
+        <div class="col-md-8 banner-sec">
+          <div
+            id="carouselExampleIndicators"
+            class="carousel slide"
+            data-ride="carousel"
+          >
+            <ol class="carousel-indicators">
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="1"
+              ></li>
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="2"
+              ></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                <img
+                  class="d-block img-fluid"
+                  src="./assets/about-bg.jpg"
+                  alt="First slide"
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                    <h2>This is First Slide</h2>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  class="d-block img-fluid"
+                  src="./assets/about2.jpg"
+                  alt="Second slide"
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                    <h2>This is Second Slide</h2>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  class="d-block img-fluid"
+                  src="./assets/slider-2.jpg"
+                  alt="Third slide"
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                    <h2>This is Heaven</h2>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main> -->

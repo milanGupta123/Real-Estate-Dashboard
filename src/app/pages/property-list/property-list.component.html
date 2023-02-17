@@ -1,0 +1,158 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Property-List</h1>
+  </div>
+  <!-- End Page Title -->
+ <div class="row" >
+  <div class="col-xl-12" style="display: flex;">
+ 
+  <div class="col-xl-6  d-md-flex justify-content-around mb-4">
+    <input type="text" class="form-control search w-55" placeholder="Search here"
+      aria-label="Username" #input
+      aria-describedby="basic-addon1" (keyup)="applyFilter($event)"/>
+    <div class="">
+      <button
+      class="btn btn-dark btn-sm ms-2 mt-md-0 mt-2 addbtn"
+      [routerLink]="['/property-details']">
+      + Add Property-Details
+    </button>
+    </div>
+  </div>
+  <div class="col-xl-2"></div>
+  <div class="col-xl-4" style="margin-left: 20px;">
+    <button class="addbtn btn btn-dark"> Delete All</button>
+    <button class="addbtn btn btn-dark" style="margin-left: 20px;"> Cancel</button>
+  </div>
+</div>
+</div>
+  <table mat-table [dataSource]="this.element" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> 
+          <input type="checkbox" (change)="chkbox($event)"/>
+        Property ID</th>
+      <td mat-cell *matCellDef="let element">
+        <input type="checkbox" [checked]="allcheck" class="chkbox"/>
+        {{ element.id}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="Looking">
+      <th mat-header-cell *matHeaderCellDef>Inventory-Type</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.propertyDetail.step1.Looking }}
+      </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="propertycategory">
+      <th mat-header-cell *matHeaderCellDef>Property-Type</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.propertyDetail.step1.propertycategory }}
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="city">
+      <th mat-header-cell *matHeaderCellDef>Location</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.propertyDetail.step2.city }}
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Locality">
+      <th mat-header-cell *matHeaderCellDef>Locality</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.propertyDetail.step2.Locality }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Houseno">
+      <th mat-header-cell *matHeaderCellDef>Building Number</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.propertyDetail.step2.Houseno }}
+      </td>
+    </ng-container>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="ownership">
+      <th mat-header-cell *matHeaderCellDef>Area</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.propertyDetail.step3.squarebuiltupArea.superbuiltuparea }}
+        {{ element.propertyDetail.step3.squarebuiltupArea.Units }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button [matMenuTriggerFor]="menu"
+          aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <div class="hello">
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item
+              [routerLink]="['/viewpropertydetails', element.id]">
+              <mat-icon>remove_red_eye</mat-icon>
+              <span>View</span>
+            </button>
+
+            <button data-bs-toggle="modal" data-bs-target="#exampleModal" mat-menu-item
+              data-bs-dismiss="modal"
+              aria-label="Close"        (click)="deleteuserData(element)">
+              <mat-icon>delete_outline</mat-icon>
+              <span>Delete</span>
+            </button>
+
+            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" 
+             aria-labelledby="exampleModalLabel" aria-hidden="true" >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">
+                      Are you sure want to delete ?
+                    </h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" 
+                    aria-label="Close">
+                  </button>
+                  </div>
+
+                  <div class="modal-footer" style="display: flex; justify-content: center" >
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                      (click)="deleteuserData(element)">
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <button
+              button mat-menu-item data-bs-toggle="modal" data-bs-target="#exampleModal1" mat-menu-item
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              [routerLink]="['/edit-property', element.id]">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+          </mat-menu>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator #paginator
+    [pageSize]="5"
+    [pageSizeOptions]="[1, 2, 5, 10, 50]"
+    style="display: flex; justify-content: center;
+    background:  linear-gradient(180deg, rgba(0, 0, 0, 0.82) 0%, rgba(67, 67, 67, 0.82) 120.41%);
+    color: white;"
+  >
+  </mat-paginator>
+</main>
+<!-- End #main -->
